@@ -6,12 +6,12 @@ import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Code} from "lucide-react";
 import ProjectModal from "@/components/modal";
-import {projects} from "@/app/projects/constants";
+import {Project, projects} from "@/app/projects/constants";
 
 
 export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState(null);
-    const openProject = (project) => setSelectedProject(project);
+    const openProject = (project:Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
 
     return (

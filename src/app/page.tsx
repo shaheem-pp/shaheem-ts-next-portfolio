@@ -7,10 +7,11 @@ import {Separator} from "@/components/ui/separator";
 import Link from "next/link";
 import {ArrowRight, Code, Github, Linkedin, Mail} from "lucide-react";
 
-import {projects} from "@/app/projects/constants";
 import {useState} from "react";
 import ProjectModal from "@/components/modal"; // ✅ import your array
 
+
+import {Project, projects} from "@/app/projects/constants";
 
 export default function Home() {
     const skills = [
@@ -26,7 +27,7 @@ export default function Home() {
 
     const [selectedProject, setSelectedProject] = useState(null);
     const featuredProjects = projects.filter((project) => project.featured); // ✅ define it here
-    const openProject = (project) => setSelectedProject(project);
+    const openProject = (project:Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
 
     return (

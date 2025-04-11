@@ -8,6 +8,20 @@ const ProjectCategory = {
     GUIDED: "Guided Project",
 };
 
+export type ProjectCategoryType = keyof typeof ProjectCategory;
+
+export interface Project {
+    title: string;
+    image: string;
+    shortContent: string;
+    description: string;
+    links: { [iconClass: string]: string };
+    stack: string[];
+    status: "Completed" | "In Progress"; // Add more if needed
+    category: ProjectCategoryType;
+    featured: boolean;
+}
+
 const CategoryColoriser = {
     [ProjectCategory.ACADEMIC]: "primary",
     [ProjectCategory.HACKATHON]: "secondary",
