@@ -18,7 +18,7 @@ export interface Project {
     description: string;
     links: { [iconClass: string]: string | undefined };
     stack: string[];
-    status: "Completed" | "In Progress"; // Add more if needed
+    status: string;
     category: ProjectCategoryType;
     featured: boolean;
 }
