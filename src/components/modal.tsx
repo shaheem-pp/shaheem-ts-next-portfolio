@@ -7,19 +7,14 @@ import {Fragment} from 'react';
 import {ExternalLink, X} from 'lucide-react';
 import {Badge} from "@/components/ui/badge";
 
+import { Project } from "@/app/projects/constants";
+
 interface ProjectModalProps {
     isOpen: boolean;
     closeModal: () => void;
-    project: {
-        title: string;
-        description: string;
-        category: string;
-        status: string;
-        stack: string[];
-        image: string;
-        links: { [iconClass: string]: string | undefined };
-    };
+    project: Project;
 }
+
 
 export default function ProjectModal({isOpen, closeModal, project}: ProjectModalProps) {
     return (

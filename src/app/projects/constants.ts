@@ -23,25 +23,6 @@ export interface Project {
     featured: boolean;
 }
 
-const CategoryColoriser = {
-    [ProjectCategory.ACADEMIC]: "primary",
-    [ProjectCategory.HACKATHON]: "secondary",
-    [ProjectCategory.PERSONAL]: "info",
-    [ProjectCategory.CLIENT]: "dark",
-    [ProjectCategory.PROFESSIONAL]: "dark",
-    [ProjectCategory.LEARNING]: "secondary",
-    [ProjectCategory.GUIDED]: "secondary",
-};
-
-const CategoryText = {
-    [ProjectCategory.ACADEMIC]: "light",
-    [ProjectCategory.HACKATHON]: "light",
-    [ProjectCategory.PERSONAL]: "dark",
-    [ProjectCategory.CLIENT]: "light",
-    [ProjectCategory.PROFESSIONAL]: "light",
-    [ProjectCategory.LEARNING]: "light",
-    [ProjectCategory.GUIDED]: "light",
-};
 
 export const projects = [{
     title: "Agua India App",
