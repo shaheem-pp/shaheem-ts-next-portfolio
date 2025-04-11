@@ -176,7 +176,11 @@ export default function Home() {
                     </div>
                     <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-8 py-8">
                         {featuredProjects.map((project, index) => (
-                            <Card key={index} className="flex flex-col overflow-hidden">
+                            <Card
+                                key={index}
+                                className="flex flex-col overflow-hidden cursor-pointer transition hover:shadow-lg"
+                                onClick={() => openProject(project)}
+                            >
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
                                         src={project.image}
@@ -205,8 +209,7 @@ export default function Home() {
                                     <Button
                                         variant="outline"
                                         size="sm"
-                                        className="w-full"
-                                        onClick={() => openProject(project)}
+                                        className="w-full pointer-events-none"
                                     >
                                         <Code className="mr-2 h-4 w-4"/> View Details
                                     </Button>
