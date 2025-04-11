@@ -11,8 +11,6 @@ import {ArrowRight, Code, Github, Linkedin, Mail} from "lucide-react";
 
 import {useState} from "react";
 import ProjectModal from "@/components/modal"; // ✅ import your array
-
-
 import {Project, projects} from "@/app/projects/constants";
 
 export default function Home() {
@@ -29,7 +27,7 @@ export default function Home() {
 
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const featuredProjects = projects.filter((project) => project.featured); // ✅ define it here
-    const openProject = (project:Project) => setSelectedProject(project);
+    const openProject = (project: Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
 
     return (
@@ -46,9 +44,8 @@ export default function Home() {
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
                                     Helping businesses to{" "}
                                     <span
-                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
-                    get online and grow fast
-                  </span>
+                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">get online and grow fast
+                                    </span>
                                 </h1>
                                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                                     I'm Shaheem, a full-stack developer specializing in Django, React, and cloud
@@ -98,9 +95,10 @@ export default function Home() {
                         </div>
                         <div className="flex items-center justify-center">
                             <div
-                                className="relative aspect-square overflow-hidden rounded-full border bg-gradient-to-b from-purple-600/20 to-pink-600/20 p-2">
+                                className="relative aspect-square overflow-hidden rounded-full border p-2">
+                                {/*className="relative aspect-square overflow-hidden rounded-full border bg-gradient-to-b from-purple-600/20 to-pink-600/20 p-2">*/}
                                 <img
-                                    src="https://ext.same-assets.com/3659750609/2569368412.png"
+                                    src="/image/linkedin-profile.png"
                                     alt="Shaheem PP"
                                     width={400}
                                     height={400}

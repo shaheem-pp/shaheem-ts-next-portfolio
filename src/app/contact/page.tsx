@@ -1,12 +1,18 @@
+// src/app/contact/page.tsx
+
+"use client";
+
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Github, Linkedin, Mail, MapPin} from "lucide-react";
 import Link from "next/link";
+import {useRef, useState} from "react";
+import emailjs from "@emailjs/browser";
 
-export const metadata = {
-    title: "Contact | Shaheem PP",
-    description: "Get in touch with me for collaborations, job opportunities, or just to say hello.",
-};
+// export const metadata = {
+//     title: "Contact | Shaheem PP",
+//     description: "Get in touch with me for collaborations, job opportunities, or just to say hello.",
+// };
 
 export default function ContactPage() {
     const contactInfo = [
@@ -35,6 +41,34 @@ export default function ContactPage() {
             link: null,
         }
     ];
+
+    const formRef = useRef<HTMLFormElement>(null);
+    const [sending, setSending] = useState(false);
+    const [status, setStatus] = useState<"success" | "error" | null>(null);
+
+
+    const form = useRef<HTMLFormElement>(null);
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!form.current) return;
+
+        emailjs.sendForm(
+            "service_w1fc4zl", // your service ID
+            "template_r4z66c8", // your template ID
+            form.current,
+            "qos1lBDOpcRud0d5E" // your public key
+        ).then(
+            () => {
+                alert("Message sent successfully!");
+                form.current?.reset();
+            },
+            (error) => {
+                alert("Failed to send message: " + error.text);
+            }
+        );
+    };
 
     return (
         <>
@@ -106,48 +140,68 @@ export default function ContactPage() {
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent>
-                                    <form className="grid gap-4">
+                                    <form ref={form} onSubmit={sendEmail} className="grid gap-4">
                                         <div className="grid gap-2">
                                             <label htmlFor="name" className="text-sm font-medium leading-none">
-                                                Name
+                                                Name <span className="text-red-500">&#42;</span>
                                             </label>
                                             <input
                                                 id="name"
+                                                name="name"
                                                 type="text"
                                                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                                 placeholder="Your name"
+                                                required={true}
                                             />
                                         </div>
                                         <div className="grid gap-2">
                                             <label htmlFor="email" className="text-sm font-medium leading-none">
-                                                Email
+                                                Email <span className="text-red-500">&#42;</span>
                                             </label>
                                             <input
                                                 id="email"
+                                                name="email"
                                                 type="email"
                                                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                                 placeholder="your.email@example.com"
+                                                required={true}
+                                            />
+                                        </div>
+                                        <div className="grid gap-2">
+                                            <label htmlFor="phone" className="text-sm font-medium leading-none">
+                                                Phone number
+                                            </label>
+                                            <input
+                                                id="phone"
+                                                name="phone"
+                                                type="text"
+                                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                                placeholder="Phone number (include country code)"
                                             />
                                         </div>
                                         <div className="grid gap-2">
                                             <label htmlFor="subject" className="text-sm font-medium leading-none">
-                                                Subject
+                                                Subject <span className="text-red-500">&#42;</span>
                                             </label>
                                             <input
                                                 id="subject"
+                                                name="subject"
                                                 type="text"
                                                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                                 placeholder="Subject"
+                                                required={true}
                                             />
                                         </div>
                                         <div className="grid gap-2">
                                             <label htmlFor="message" className="text-sm font-medium leading-none">
-                                                Message
+                                                Message <span className="text-red-500">&#42;</span>
                                             </label>
                                             <textarea
                                                 id="message"
+                                                name="message"
                                                 className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                                 placeholder="Your message"
+                                                required={true}
                                             />
                                         </div>
                                         <Button type="submit" className="w-full">
