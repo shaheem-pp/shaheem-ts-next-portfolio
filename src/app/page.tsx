@@ -1,3 +1,5 @@
+// src/app/page.tsx
+
 "use client";
 
 import {Button} from "@/components/ui/button";
@@ -25,7 +27,7 @@ export default function Home() {
         {name: "Git", category: "Tools"},
     ];
 
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const featuredProjects = projects.filter((project) => project.featured); // ✅ define it here
     const openProject = (project:Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);

@@ -1,3 +1,4 @@
+// src/app/projects/constants.ts
 const ProjectCategory = {
     ACADEMIC: "Academic Project",
     HACKATHON: "Hackathon Project",

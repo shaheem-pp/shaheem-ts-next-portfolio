@@ -1,3 +1,5 @@
+// src/app/projects/page.tsx
+
 "use client";
 
 import {useState} from "react";
@@ -10,7 +12,7 @@ import {Project, projects} from "@/app/projects/constants";
 
 
 export default function ProjectsPage() {
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const openProject = (project:Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
 
