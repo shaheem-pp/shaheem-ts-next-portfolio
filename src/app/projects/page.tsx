@@ -32,7 +32,7 @@ export default function ProjectsPage() {
                         {projects.map((project, index) => (
                             <Card
                                 key={index}
-                                className="flex flex-col overflow-hidden cursor-pointer transition hover:shadow-lg"
+                                className="flex flex-col overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-md hover:dark:shadow-lg hover:dark:shadow-accent"
                                 onClick={() => openProject(project)}
                             >
                                 <div className="aspect-video w-full overflow-hidden">
