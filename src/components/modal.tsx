@@ -7,7 +7,7 @@ import {Fragment} from 'react';
 import {ExternalLink, X} from 'lucide-react';
 import {Badge} from "@/components/ui/badge";
 
-import { Project } from "@/app/projects/constants";
+import {Project} from "@/app/projects/constants";
 
 interface ProjectModalProps {
     isOpen: boolean;
@@ -48,8 +48,12 @@ export default function ProjectModal({isOpen, closeModal, project}: ProjectModal
 
                                 {/* Sticky Header */}
                                 <div
-                                    className="sticky top-0 z-10 bg-white p-6 border-b flex justify-between items-start">
-                                    <Dialog.Title className="text-2xl font-bold">{project.title}</Dialog.Title>
+                                    className="sticky top-0 z-10 bg-white text-gray-900 p-6 border-b flex justify-between items-stretch">
+                                    {/*<Dialog.Title className="text-2xl font-bold">{project.title}</Dialog.Title>*/}
+                                    <div>
+                                        <h1 className="text-2xl font-bold">{project.title}</h1>
+                                        <Badge variant="project">{project.category}</Badge>
+                                    </div>
                                     <button onClick={closeModal}>
                                         <X className="w-5 h-5 text-gray-400 hover:text-gray-600"/>
                                     </button>
@@ -66,6 +70,8 @@ export default function ProjectModal({isOpen, closeModal, project}: ProjectModal
                                         />
                                     </div>
 
+
+
                                     {/* Description */}
                                     <div className="prose max-w-none">
                                         <div dangerouslySetInnerHTML={{__html: project.description}}/>
@@ -74,9 +80,7 @@ export default function ProjectModal({isOpen, closeModal, project}: ProjectModal
                                     {/* Metadata */}
                                     <div className="space-y-2">
                                         <div className="flex flex-wrap gap-2 text-sm text-gray-600">
-                                            <span className="font-medium">Category:</span>
-                                            <Badge variant="secondary">{project.category}</Badge>
-                                            <span className="font-medium ml-4">Status:</span>
+                                            <span className="font-medium">Status:</span>
                                             <Badge variant="outline">{project.status}</Badge>
                                         </div>
 
