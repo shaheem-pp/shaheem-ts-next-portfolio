@@ -16,7 +16,7 @@ export interface Project {
     image: string;
     shortContent: string;
     description: string;
-    links: { [iconClass: string]: string };
+    links: { [iconClass: string]: string | undefined };
     stack: string[];
     status: "Completed" | "In Progress"; // Add more if needed
     category: ProjectCategoryType;

@@ -1,3 +1,5 @@
+// src/components/modal.tsx
+
 'use client';
 
 import {Dialog, Transition} from '@headlessui/react';
@@ -15,7 +17,7 @@ interface ProjectModalProps {
         status: string;
         stack: string[];
         image: string;
-        links: { [key: string]: string };
+        links: { [iconClass: string]: string | undefined };
     };
 }
 
@@ -100,18 +102,20 @@ export default function ProjectModal({isOpen, closeModal, project}: ProjectModal
                                         <div className="pt-2 border-t">
                                             <span className="font-medium text-sm text-gray-600">Links:</span>
                                             <div className="flex flex-wrap gap-3 mt-2">
-                                                {Object.entries(project.links).map(([iconClass, url], idx) => (
-                                                    <a
-                                                        key={idx}
-                                                        href={url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline"
-                                                    >
-                                                        <ExternalLink className="w-4 h-4"/>
-                                                        {new URL(url).hostname.replace("www.", "")}
-                                                    </a>
-                                                ))}
+                                                {Object.entries(project.links)
+                                                    .filter(([_, url]) => typeof url === "string" && url.trim() !== "")
+                                                    .map(([iconClass, url], idx) => (
+                                                        <a
+                                                            key={idx}
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline"
+                                                        >
+                                                            <ExternalLink className="w-4 h-4"/>
+                                                            {url && new URL(url).hostname.replace("www.", "")}
+                                                        </a>
+                                                    ))}
                                             </div>
                                         </div>
                                     )}
