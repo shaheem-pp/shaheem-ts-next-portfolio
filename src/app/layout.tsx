@@ -8,6 +8,8 @@ import {ThemeProvider} from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -95,6 +97,7 @@ export default function RootLayout({
             </div>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
         </body>
         </html>
     );
