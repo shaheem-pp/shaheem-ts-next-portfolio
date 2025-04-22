@@ -9,10 +9,7 @@ import Link from "next/link";
 import {useRef, useState} from "react";
 import emailjs from "@emailjs/browser";
 
-// export const metadata = {
-//     title: "Contact | Shaheem PP",
-//     description: "Get in touch with me for collaborations, job opportunities, or just to say hello.",
-// };
+
 
 export default function ContactPage() {
     const contactInfo = [

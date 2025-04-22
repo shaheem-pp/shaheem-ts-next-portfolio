@@ -50,6 +50,9 @@ const Footer = () => {
                 </div>
                 <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
                     <p>© {currentYear} shaheem.dev. All rights reserved.</p>
+                    <p className="mt-2 text-xs">
+                        Made with ❤️ using Next.js & Tailwind CSS
+                    </p>
                 </div>
             </div>
         </footer>
