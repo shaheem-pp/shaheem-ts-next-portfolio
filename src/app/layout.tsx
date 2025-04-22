@@ -7,8 +7,8 @@ import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import {Analytics} from "@vercel/analytics/react"
+import {SpeedInsights} from '@vercel/speed-insights/next';
 
 
 const fontSans = FontSans({
@@ -96,8 +96,8 @@ export default function RootLayout({
                 <Footer/>
             </div>
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
+        <Analytics/>
+        <SpeedInsights/>
         </body>
         </html>
     );
