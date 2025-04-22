@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight, CheckCircle2} from "lucide-react";
 import Link from "next/link";
+import {groupedSkills, highlights, myvalues} from "@/app/about/constants";
 
 export const metadata = {
     title: "About | Shaheem PP",
@@ -10,55 +11,6 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-    const highlights = [
-        "Backend-focused full-stack developer with 1.6+ years of experience",
-        "Specializing in Django and building high-performance web applications",
-        "Passionate about creating scalable and efficient solutions",
-        "Continuously learning and expanding skills in modern web technologies",
-        "Experience with both commercial and academic projects",
-    ];
-
-    const values = [
-        {
-            title: "Clean Code",
-            description: "I believe in writing clean, maintainable code that follows best practices and is easy to understand."
-        },
-        {
-            title: "User-Focused",
-            description: "I develop applications with the end user in mind, ensuring a seamless and intuitive experience."
-        },
-        {
-            title: "Continuous Learning",
-            description: "I'm constantly expanding my knowledge and skills to stay up-to-date with the latest technologies."
-        },
-        {
-            title: "Problem Solving",
-            description: "I enjoy tackling complex problems and finding efficient solutions."
-        },
-        {
-            title: "Collaboration",
-            description: "I value teamwork and believe that the best results come from effective collaboration."
-        },
-        {
-            title: "Adaptability",
-            description: "I'm quick to adapt to new technologies, environments, and challenges."
-        },
-    ];
-
-    const skills = [
-        {name: "Django", level: "Advanced"},
-        {name: "Python", level: "Advanced"},
-        {name: "REST APIs", level: "Advanced"},
-        {name: "JavaScript", level: "Intermediate"},
-        {name: "React", level: "Intermediate"},
-        {name: "PostgreSQL", level: "Advanced"},
-        {name: "AWS", level: "Intermediate"},
-        {name: "Docker", level: "Intermediate"},
-        {name: "Git", level: "Advanced"},
-        {name: "HTML/CSS", level: "Intermediate"},
-        {name: "Bootstrap", level: "Intermediate"},
-        {name: "CI/CD", level: "Intermediate"},
-    ];
 
     return (
         <>
@@ -154,7 +106,7 @@ export default function AboutPage() {
                     </div>
                     <div
                         className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-8 md:pt-12">
-                        {values.map((value, index) => (
+                        {myvalues.map((value, index) => (
                             <Card key={index} className="flex flex-col">
                                 <CardHeader>
                                     <CardTitle>{value.title}</CardTitle>
@@ -180,18 +132,42 @@ export default function AboutPage() {
                             </p>
                         </div>
                     </div>
-                    <div
-                        className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 pt-8 md:pt-12">
-                        {skills.map((skill, index) => (
-                            <Card key={index} className="flex flex-col items-center justify-center p-4 text-center">
-                                <CardContent className="p-2">
-                                    <h3 className="font-bold">{skill.name}</h3>
-                                    <Badge
-                                        variant={skill.level === "Advanced" ? "default" : "secondary"} className="mt-2">
-                                        {skill.level}
-                                    </Badge>
-                                </CardContent>
-                            </Card>
+
+                    <div className="mx-auto max-w-6xl pt-10 space-y-10">
+                        {Object.entries(groupedSkills).map(([category, skills]) => (
+                            <div key={category}>
+                                <h3 className="text-xl font-semibold mb-4">{category}</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                    {[...skills]
+                                        .sort((a, b) => {
+                                            const order: Record<string, number> = {
+                                                "Advanced": 3,
+                                                "Intermediate-Advanced": 2.5,
+                                                "Intermediate": 2,
+                                                "Beginner-Intermediate": 1.5,
+                                                "Beginner": 1
+                                            };
+                                            const levelA = order[a.level.replace("–", "-")] ?? 0;
+                                            const levelB = order[b.level.replace("–", "-")] ?? 0;
+                                            return levelB - levelA;
+                                        })
+                                        .map((skill, index) => (
+                                            <Card
+                                                key={index}
+                                                className="flex flex-col items-center justify-center p-4 text-center">
+                                                <CardContent className="p-2">
+                                                    <h4 className="font-semibold">{skill.name}</h4>
+                                                    <Badge
+                                                        variant={skill.level.includes("Advanced") ? "default" : "secondary"}
+                                                        className="mt-2"
+                                                    >
+                                                        {skill.level}
+                                                    </Badge>
+                                                </CardContent>
+                                            </Card>
+                                        ))}
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
