@@ -1,3 +1,5 @@
+// src/app/resume/constants.ts
+
 export type Achievement = {
     title: string;
     role?: string;
@@ -82,28 +84,28 @@ export const education = [
 export const skills = [
     {
         category: "Backend Development",
-        items: ["Django", "REST APIs", "Python", "Server-Side Logic"]
+        items: ["Django", "REST APIs", "Python", "System Design", "JWT Authentication"]
     },
     {
-        category: "Database Management",
-        items: ["PostgreSQL", "PostGIS", "SQL Optimization"]
+        category: "Frontend & UI Development",
+        items: ["React", "JavaScript", "HTML/CSS", "Bootstrap", "Tailwind CSS", "AJAX", "jQuery", "Next.js"]
     },
     {
-        category: "DevOps & Cloud Infrastructure",
-        items: ["AWS", "DigitalOcean", "Docker", "CI/CD"]
+        category: "Mobile Development",
+        items: ["Swift", "SwiftUI", "UIKit", "Xcode"]
     },
     {
-        category: "Frontend Development",
-        items: ["React.js", "HTML/CSS", "Bootstrap", "JavaScript"]
+        category: "Cloud & DevOps",
+        items: ["AWS (EC2, S3, RDS)", "DigitalOcean", "Docker", "CI/CD", "Git", "GitHub", "Vercel"]
     },
     {
-        category: "Teamwork & Leadership",
-        items: ["Leadership", "Mentoring", "Team Collaboration"]
+        category: "Database & GIS",
+        items: ["PostgreSQL", "PostGIS", "MySQL", "SQLite"]
     },
     {
-        category: "Core Competencies",
-        items: ["Problem-Solving", "Adaptability", "Time Management"]
-    },
+        category: "Developer Tools & Collaboration",
+        items: ["Postman", "Chrome DevTools", "Figma", "Notion"]
+    }
 ];
 
 export const achievements: Achievement[] = [

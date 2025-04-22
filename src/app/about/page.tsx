@@ -1,12 +1,25 @@
+// src/app/about/page.tsx
+
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight, CheckCircle2} from "lucide-react";
 import Link from "next/link";
-import {groupedSkills, highlights, myvalues} from "@/app/about/constants";
-import SkillGrid from "@/components/skills-grid";
-
+import {highlights, myvalues} from "@/app/about/constants";
+import {Badge} from "@/components/ui/badge"; // for condensed skills display
 
 export default function AboutPage() {
+    const topSkills = [
+        "Django",
+        "REST APIs",
+        "PostgreSQL",
+        "PostGIS",
+        "React",
+        "AWS (EC2, S3, RDS)",
+        "Docker",
+        "SwiftUI",
+        "System Design",
+        "Git/GitHub"
+    ];
 
     return (
         <>
@@ -65,17 +78,11 @@ export default function AboutPage() {
                                     />
                                 </div>
                                 <div className="flex justify-center gap-4">
-                                    <Link
-                                        href="/resume"
-                                        className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                                    >
-                                        Resume
+                                    <Link href="/resume">
+                                        <Button>Resume</Button>
                                     </Link>
-                                    <Link
-                                        href="/projects"
-                                        className="inline-flex items-center justify-center rounded-md border border-input bg-background px-8 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                                    >
-                                        Projects
+                                    <Link href="/projects">
+                                        <Button variant="outline">Projects</Button>
                                     </Link>
                                 </div>
                             </div>
@@ -117,16 +124,27 @@ export default function AboutPage() {
                     <div className="mx-auto flex max-w-3xl flex-col items-center justify-center space-y-4 text-center">
                         <div className="space-y-2">
                             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                                Technical Skills
+                                Tech at a Glance
                             </h2>
                             <p className="text-muted-foreground md:text-xl">
-                                My technical expertise and proficiency levels
+                                Here's a quick look at the tools and technologies I work with:
                             </p>
                         </div>
-                    </div>
-
-                    <div className="mx-auto max-w-6xl pt-10">
-                        <SkillGrid groupedSkills={groupedSkills}/>
+                        <div className="flex flex-wrap justify-center gap-3 pt-6">
+                            {topSkills.map((skill, index) => (
+                                <Badge
+                                    key={index}
+                                    variant="secondary"
+                                    className="transition-transform hover:scale-105 duration-200"
+                                >
+                                    {skill}
+                                </Badge>
+                            ))}
+                        </div>
+                        <p className="text-sm text-muted-foreground pt-4">
+                            For my full tech stack and proficiencies, check out the{" "}
+                            <Link href="/resume#skills" className="text-primary underline">Resume</Link> page.
+                        </p>
                     </div>
                 </div>
             </section>

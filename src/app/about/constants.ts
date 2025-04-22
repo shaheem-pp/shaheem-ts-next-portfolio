@@ -1,3 +1,5 @@
+// src/app/about/constants.ts
+
 export const highlights = [
     "Backend-focused full-stack developer with 2 years of hands-on experience in building real-world web applications",
     "Expertise in Django, REST APIs, and scalable system architecture",

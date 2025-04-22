@@ -124,7 +124,7 @@ export default function ResumePage() {
                         <Separator/>
 
                         {/* Skills Section */}
-                        <div>
+                        <div id="skills">
                             <h2 className="text-2xl font-bold tracking-tighter mb-6">
                                 Skills
                             </h2>
@@ -137,7 +137,11 @@ export default function ResumePage() {
                                         <CardContent>
                                             <div className="flex flex-wrap gap-2">
                                                 {skill.items.map((item, itemIndex) => (
-                                                    <Badge key={itemIndex} variant="secondary">
+                                                    <Badge
+                                                        key={itemIndex}
+                                                        variant="secondary"
+                                                        className="transition-transform hover:scale-105 duration-200"
+                                                    >
                                                         {item}
                                                     </Badge>
                                                 ))}
