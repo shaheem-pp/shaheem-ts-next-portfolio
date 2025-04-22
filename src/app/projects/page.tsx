@@ -103,6 +103,11 @@ export default function ProjectsPage() {
                                             ))}
                                         </div>
                                     </div>
+
+                                    <div className="text-sm text-muted-foreground mt-2">
+                                        Showing <strong>{filteredProjects.length}</strong> project{filteredProjects.length !== 1 && "s"}
+                                    </div>
+
                                     <div className="flex gap-2 mt-4">
                                         <Button className="flex-1" onClick={() => setShowFilters(false)}>Apply Filters</Button>
                                         <Button variant="secondary" className="flex-1" onClick={() => {
