@@ -44,13 +44,13 @@ export default function Home() {
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
                                     Helping businesses to{" "}
                                     <span
-                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">get online and grow fast
+                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">go online and grow faster
                                     </span>
                                 </h1>
                                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                    I'm Shaheem, a full-stack developer specializing in Django, React, and cloud
-                                    technologies. I build scalable and efficient web applications that solve real-world
-                                    problems.
+                                    I’m Shaheem — a backend-focused full stack developer who builds scalable, efficient
+                                    applications using Django, React, and cloud technologies. I focus on solving
+                                    real-world problems with clean code and thoughtful architecture.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -118,8 +118,8 @@ export default function Home() {
                             About Me
                         </h2>
                         <p className="max-w-[85%] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            I'm a backend-focused full-stack developer with 1.6+ years of experience building scalable
-                            and efficient web applications.
+                            I’m a backend-focused full stack developer with 2 years of experience building scalable
+                            systems, intuitive dashboards, and real-world apps that work.
                         </p>
                         <Separator className="my-4"/>
                         <div className="flex flex-col gap-8 md:gap-12 text-left">
@@ -144,11 +144,9 @@ export default function Home() {
                             <div>
                                 <h3 className="text-xl font-bold mb-3">My Approach</h3>
                                 <p className="text-muted-foreground">
-                                    I love optimizing workflows, designing intuitive dashboards, and collaborating with
-                                    teams to build
-                                    solutions that make an impact. I'm looking for opportunities where I can apply my
-                                    expertise,
-                                    tackle new challenges, and grow alongside a great team.
+                                    I’m passionate about improving workflows, building user-centric dashboards, and
+                                    collaborating with teams to deliver real value. I love solving meaningful problems
+                                    with clean architecture and scalable code.
                                 </p>
                             </div>
                         </div>
@@ -276,8 +274,8 @@ export default function Home() {
                                 Let's Build Something Together
                             </h2>
                             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                                I'm always open to discussing new projects, creative ideas, or opportunities to be part
-                                of your vision.
+                                Let’s collaborate on something meaningful — whether it’s a new product, a challenging
+                                backend system, or a passion project.
                             </p>
                         </div>
                         <div className="mx-auto w-full max-w-sm space-y-2">
