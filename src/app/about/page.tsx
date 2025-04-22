@@ -1,14 +1,10 @@
-import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight, CheckCircle2} from "lucide-react";
 import Link from "next/link";
 import {groupedSkills, highlights, myvalues} from "@/app/about/constants";
+import SkillGrid from "@/components/skills-grid";
 
-export const metadata = {
-    title: "About | Shaheem PP",
-    description: "Learn more about Shaheem PP, a backend-focused full-stack developer specializing in Django, React, and cloud technologies.",
-};
 
 export default function AboutPage() {
 
@@ -29,23 +25,19 @@ export default function AboutPage() {
                             </div>
                             <div className="space-y-5 text-muted-foreground">
                                 <p>
-                                    I specialize in Django and enjoy developing secure, high-performance systems that
-                                    solve real-world problems.
-                                    My journey in tech began with a fascination for building things that work
-                                    efficiently and help people.
+                                    I specialize in Django and backend systems, building secure, scalable applications
+                                    that solve real-world problems. My journey in tech began with a love for making
+                                    things work — efficiently and meaningfully.
                                 </p>
                                 <p>
-                                    Currently, I'm pursuing a Post Graduate program in Full Stack Software Development
-                                    in Toronto,
-                                    constantly learning and refining my skills in backend architecture, API development,
-                                    and cloud deployment.
+                                    I'm currently pursuing a Postgraduate Certificate in Full Stack Development in
+                                    Toronto, while expanding my skills in API design, system architecture, and cloud
+                                    platforms.
                                 </p>
                                 <p>
-                                    I love optimizing workflows, designing intuitive dashboards, and collaborating with
-                                    teams to build
-                                    solutions that make an impact. I'm looking for opportunities where I can apply my
-                                    expertise,
-                                    tackle new challenges, and grow alongside a great team.
+                                    From streamlining NGO workflows to building dashboards for 20,000+ users, I’m driven
+                                    by a desire to build tools that matter. I’m actively looking for opportunities where
+                                    I can contribute, grow, and collaborate with forward-thinking teams.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-3 pt-4">
@@ -133,42 +125,8 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <div className="mx-auto max-w-6xl pt-10 space-y-10">
-                        {Object.entries(groupedSkills).map(([category, skills]) => (
-                            <div key={category}>
-                                <h3 className="text-xl font-semibold mb-4">{category}</h3>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                                    {[...skills]
-                                        .sort((a, b) => {
-                                            const order: Record<string, number> = {
-                                                "Advanced": 3,
-                                                "Intermediate-Advanced": 2.5,
-                                                "Intermediate": 2,
-                                                "Beginner-Intermediate": 1.5,
-                                                "Beginner": 1
-                                            };
-                                            const levelA = order[a.level.replace("–", "-")] ?? 0;
-                                            const levelB = order[b.level.replace("–", "-")] ?? 0;
-                                            return levelB - levelA;
-                                        })
-                                        .map((skill, index) => (
-                                            <Card
-                                                key={index}
-                                                className="flex flex-col items-center justify-center p-4 text-center">
-                                                <CardContent className="p-2">
-                                                    <h4 className="font-semibold">{skill.name}</h4>
-                                                    <Badge
-                                                        variant={skill.level.includes("Advanced") ? "default" : "secondary"}
-                                                        className="mt-2"
-                                                    >
-                                                        {skill.level}
-                                                    </Badge>
-                                                </CardContent>
-                                            </Card>
-                                        ))}
-                                </div>
-                            </div>
-                        ))}
+                    <div className="mx-auto max-w-6xl pt-10">
+                        <SkillGrid groupedSkills={groupedSkills}/>
                     </div>
                 </div>
             </section>
