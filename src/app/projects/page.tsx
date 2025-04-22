@@ -10,7 +10,6 @@ import {Code} from "lucide-react";
 import ProjectModal from "@/components/modal";
 import {Project, projects} from "@/app/projects/constants";
 
-
 export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const openProject = (project: Project) => setSelectedProject(project);
@@ -25,7 +24,8 @@ export default function ProjectsPage() {
                             Projects
                         </h2>
                         <p className="max-w-[85%] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Here are some of the key projects I've worked on
+                            Real-world platforms I've built — spanning professional systems, hackathons, and academic
+                            projects.
                         </p>
                     </div>
                     <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-8 py-8">
