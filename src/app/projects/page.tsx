@@ -2,26 +2,42 @@
 
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {Code} from "lucide-react";
+import {Code, Filter} from "lucide-react";
 import ProjectModal from "@/components/modal";
 import {Project, projects} from "@/app/projects/constants";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+const statuses = ["All", ...Array.from(new Set(projects.map(p => p.status)))];
 
 export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [filterCategory, setFilterCategory] = useState("All");
+    const [filterStatus, setFilterStatus] = useState("All");
+    const [isMobile, setIsMobile] = useState(false);
+    const [showFilters, setShowFilters] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const openProject = (project: Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
 
     const filteredProjects = projects.filter(project => {
-        return filterCategory === "All" || project.category === filterCategory;
+        const matchCategory = filterCategory === "All" || project.category === filterCategory;
+        const matchStatus = filterStatus === "All" || project.status === filterStatus;
+        return matchCategory && matchStatus;
     });
+
+    const isFiltered = filterCategory !== "All" || filterStatus !== "All";
 
     return (
         <>
@@ -36,18 +52,68 @@ export default function ProjectsPage() {
                         </p>
                     </div>
 
-                    {/* Filter Controls */}
-                    <div className="flex flex-wrap justify-center gap-4 my-6">
-                        {categories.map((cat, i) => (
-                            <Button
-                                key={i}
-                                variant={cat === filterCategory ? "default" : "outline"}
-                                size="sm"
-                                onClick={() => setFilterCategory(cat)}
+                    {/* Filter Button for All Screens */}
+                    <div className="flex justify-end my-4">
+                        <Sheet open={showFilters} onOpenChange={setShowFilters}>
+                            <SheetTrigger asChild>
+                                <Button variant="outline" size="sm" className="relative">
+                                    <Filter className="w-4 h-4 mr-2" /> Filters
+                                    {isFiltered && (
+                                        <span className="absolute -top-2 -right-2">
+                                            <Badge variant="default" className="rounded-full px-2 py-0.5 text-[10px] h-auto">●</Badge>
+                                        </span>
+                                    )}
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent
+                                side="right"
+                                className={`${isMobile ? "w-screen" : "w-[90vw] max-w-sm md:max-w-md lg:max-w-lg"}`}
                             >
-                                {cat}
-                            </Button>
-                        ))}
+                                <SheetHeader>
+                                    <SheetTitle>Filter Projects</SheetTitle>
+                                </SheetHeader>
+                                <div className="py-4 space-y-6">
+                                    <div>
+                                        <p className="text-sm font-medium mb-1">Category</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {categories.map((cat, i) => (
+                                                <Button
+                                                    key={i}
+                                                    variant={cat === filterCategory ? "default" : "outline"}
+                                                    size="sm"
+                                                    onClick={() => setFilterCategory(cat)}
+                                                >
+                                                    {cat}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-medium mb-1">Status</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {statuses.map((status, i) => (
+                                                <Button
+                                                    key={i}
+                                                    variant={status === filterStatus ? "default" : "outline"}
+                                                    size="sm"
+                                                    onClick={() => setFilterStatus(status)}
+                                                >
+                                                    {status}
+                                                </Button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-2 mt-4">
+                                        <Button className="flex-1" onClick={() => setShowFilters(false)}>Apply Filters</Button>
+                                        <Button variant="secondary" className="flex-1" onClick={() => {
+                                            setFilterCategory("All");
+                                            setFilterStatus("All");
+                                            setShowFilters(false);
+                                        }}>Reset</Button>
+                                    </div>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
                     </div>
 
                     {/* Projects Grid */}
@@ -88,11 +154,11 @@ export default function ProjectsPage() {
                                             {project.status}
                                         </Badge>
                                         <Button
-                                            variant="card"
+                                            variant="outline"
                                             size="sm"
                                             className="pointer-events-none"
                                         >
-                                            <Code className="mr-2 h-4 w-4"/> View Details
+                                            <Code className="mr-2 h-4 w-4 text-primary"/> View Details
                                         </Button>
                                     </CardFooter>
                                 </Card>

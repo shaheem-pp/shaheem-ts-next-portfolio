@@ -210,11 +210,11 @@ export default function Home() {
                                         {project.status}
                                     </Badge>
                                     <Button
-                                        variant="card"
+                                        variant="outline"
                                         size="sm"
                                         className="pointer-events-none"
                                     >
-                                        <Code className="mr-2 h-4 w-4"/> View Details
+                                        <Code className="mr-2 h-4 w-4 text-primary"/> View Details
                                     </Button>
                                 </CardFooter>
                             </Card>
