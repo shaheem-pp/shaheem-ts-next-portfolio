@@ -205,11 +205,14 @@ export default function Home() {
                                         {project.shortContent}
                                     </CardDescription>
                                 </CardContent>
-                                <CardFooter>
+                                <CardFooter className="justify-between">
+                                    <Badge variant="outline" className="text-xs">
+                                        {project.status}
+                                    </Badge>
                                     <Button
-                                        variant="outline"
+                                        variant="card"
                                         size="sm"
-                                        className="w-full pointer-events-none"
+                                        className="pointer-events-none"
                                     >
                                         <Code className="mr-2 h-4 w-4"/> View Details
                                     </Button>
