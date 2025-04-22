@@ -15,14 +15,14 @@ import {Project, projects} from "@/app/projects/constants";
 
 export default function Home() {
     const skills = [
-        {name: "Django", category: "Backend"},
-        {name: "Python", category: "Backend"},
-        {name: "REST APIs", category: "Backend"},
-        {name: "PostgreSQL", category: "Database"},
-        {name: "React", category: "Frontend"},
-        {name: "AWS", category: "DevOps"},
-        {name: "Docker", category: "DevOps"},
-        {name: "Git", category: "Tools"},
+        "Django",
+        "REST APIs",
+        "PostgreSQL",
+        "PostGIS",
+        "React",
+        "AWS (EC2, S3, RDS)",
+        "SwiftUI",
+        "System Design",
     ];
 
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -135,10 +135,24 @@ export default function Home() {
                                 </p>
                                 <div className="flex flex-wrap gap-2 mt-3">
                                     {skills.map((skill, index) => (
-                                        <Badge key={index} variant="secondary">
-                                            {skill.name}
+                                        <Badge
+                                            key={index}
+                                            variant="secondary"
+                                            className="transition-transform hover:scale-105 duration-200"
+                                        >
+                                            {skill}
                                         </Badge>
                                     ))}
+                                    <Link href="/resume#skills" className="text-primary underline">
+                                        <Badge
+                                            key="moreskills"
+                                            variant="secondary"
+                                            className="text-primary transition-transform hover:scale-105 duration-200"
+                                        >
+                                            see more...
+                                        </Badge>
+                                    </Link>
+
                                 </div>
                             </div>
                             <div>
