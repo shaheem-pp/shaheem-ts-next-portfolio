@@ -7,6 +7,7 @@ import {cn} from "@/lib/utils";
 import {ThemeProvider} from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({
                 <Footer/>
             </div>
         </ThemeProvider>
+        <Analytics />
         </body>
         </html>
     );
