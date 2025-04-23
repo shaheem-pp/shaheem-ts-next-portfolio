@@ -35,39 +35,15 @@ export const myvalues = [
     }
 ];
 
-export const groupedSkills = {
-    "Backend": [
-        {name: "Django", level: "Intermediate"},
-        {name: "REST APIs", level: "Intermediate"},
-        {name: "Python", level: "Intermediate"},
-    ],
-    "Frontend": [
-        {name: "React", level: "Intermediate"},
-        {name: "JavaScript", level: "Intermediate"},
-        {name: "HTML/CSS", level: "Advanced"},
-        {name: "Bootstrap", level: "Advanced"},
-        {name: "Tailwind CSS", level: "Intermediate-Advanced"},
-    ],
-    "DevOps & Cloud": [
-        {name: "AWS (EC2, S3, RDS)", level: "Beginner-Intermediate"},
-        {name: "Docker", level: "Beginner-Intermediate"},
-        {name: "CI/CD", level: "Beginner-Intermediate"},
-        {name: "Git/GitHub", level: "Intermediate"},
-        {name: "DigitalOcean", level: "Intermediate"},
-    ],
-    "Database & GIS": [
-        {name: "PostgreSQL", level: "Intermediate"},
-        {name: "PostGIS", level: "Intermediate"},
-        {name: "MySQL", level: "Intermediate"},
-    ],
-    "Tools & Other": [
-        {name: "Postman", level: "Advanced"},
-        {name: "Chrome DevTools", level: "Intermediate"},
-        {name: "Figma", level: "Intermediate"},
-        {name: "Swift", level: "Intermediate"},
-        {name: "SwiftUI", level: "Intermediate"},
-        {name: "Next.js", level: "Beginner-Intermediate"},
-        {name: "WordPress", level: "Intermediate"},
-        {name: "AJAX/jQuery", level: "Intermediate"},
-    ]
-};
+export const topSkills = [
+    "Django",
+    "REST APIs",
+    "PostgreSQL",
+    "PostGIS",
+    "React",
+    "AWS (EC2, S3, RDS)",
+    "Docker",
+    "SwiftUI",
+    "System Design",
+    "Git/GitHub"
+];

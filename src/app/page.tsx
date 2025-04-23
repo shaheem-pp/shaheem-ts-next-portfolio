@@ -12,18 +12,10 @@ import {ArrowRight, Code, Github, Linkedin, Mail} from "lucide-react";
 import {useState} from "react";
 import ProjectModal from "@/components/modal"; // ✅ import your array
 import {Project, projects} from "@/app/projects/constants";
+import {topSkills} from "@/app/about/constants";
 
 export default function Home() {
-    const skills = [
-        "Django",
-        "REST APIs",
-        "PostgreSQL",
-        "PostGIS",
-        "React",
-        "AWS (EC2, S3, RDS)",
-        "SwiftUI",
-        "System Design",
-    ];
+
 
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const featuredProjects = projects.filter((project) => project.featured); // ✅ define it here
@@ -133,8 +125,8 @@ export default function Home() {
                                     constantly learning and refining my skills in backend architecture, API development,
                                     and cloud deployment.
                                 </p>
-                                <div className="flex flex-wrap gap-2 mt-3">
-                                    {skills.map((skill, index) => (
+                                <div className="flex flex-wrap justify-center gap-3 pt-6">
+                                    {topSkills.map((skill, index) => (
                                         <Badge
                                             key={index}
                                             variant="secondary"
@@ -143,17 +135,11 @@ export default function Home() {
                                             {skill}
                                         </Badge>
                                     ))}
-                                    <Link href="/resume#skills" className="text-primary underline">
-                                        <Badge
-                                            key="moreskills"
-                                            variant="secondary"
-                                            className="text-primary transition-transform hover:scale-105 duration-200"
-                                        >
-                                            see more...
-                                        </Badge>
-                                    </Link>
-
                                 </div>
+                                <p className="text-sm text-muted-foreground pt-4">
+                                    For my full tech stack and proficiencies, check out the{" "}
+                                    <Link href="/resume#skills" className="text-primary underline">Resume</Link> page.
+                                </p>
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold mb-3">My Approach</h3>

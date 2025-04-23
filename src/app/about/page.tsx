@@ -4,22 +4,10 @@ import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight, CheckCircle2} from "lucide-react";
 import Link from "next/link";
-import {highlights, myvalues} from "@/app/about/constants";
+import {highlights, myvalues, topSkills} from "@/app/about/constants";
 import {Badge} from "@/components/ui/badge"; // for condensed skills display
 
 export default function AboutPage() {
-    const topSkills = [
-        "Django",
-        "REST APIs",
-        "PostgreSQL",
-        "PostGIS",
-        "React",
-        "AWS (EC2, S3, RDS)",
-        "Docker",
-        "SwiftUI",
-        "System Design",
-        "Git/GitHub"
-    ];
 
     return (
         <>
