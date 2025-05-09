@@ -7,7 +7,6 @@ import {Download, ExternalLink} from "lucide-react";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {Separator} from "@/components/ui/separator";
 import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@/components/ui/dialog";
 
 import {type Achievement, achievements, education, experiences, skills} from "./constants";
@@ -28,7 +27,7 @@ export default function ResumePage() {
                         <div className="max-w-sm mx-auto pt-2">
                             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                                 <Button size="lg" className="w-full">
-                                    <Download className="mr-2 h-4 w-4" /> Download Resume
+                                    <Download className="mr-2 h-4 w-4"/> Download Resume
                                 </Button>
                             </a>
                         </div>
@@ -47,10 +46,12 @@ export default function ResumePage() {
                                     <CardHeader>
                                         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                                             <CardTitle>
-                                                {exp.title}{" "}
-                                                <span className="text-sm font-normal text-muted-foreground">
-                                                    ({exp.role})
-                                                </span>
+                                                {exp.title}
+                                                {exp.role && (
+                                                    <span className="text-sm font-normal text-muted-foreground">
+                                                        ({exp.role})
+                                                    </span>
+                                                )}
                                             </CardTitle>
                                             <span className="text-sm text-muted-foreground">
                                                 {exp.duration}
@@ -60,11 +61,13 @@ export default function ResumePage() {
                                         <div className="text-sm text-muted-foreground">{exp.location}</div>
                                     </CardHeader>
                                     <CardContent>
-                                        <ul className="list-disc pl-5 space-y-2">
-                                            {exp.responsibilities.map((item, i) => (
-                                                <li key={i}>{item}</li>
-                                            ))}
-                                        </ul>
+                                        {exp.responsibilities && (
+                                            <ul className="list-disc pl-5 space-y-2">
+                                                {exp.responsibilities.map((item, i) => (
+                                                    <li key={i}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </CardContent>
                                 </Card>
                             ))}
@@ -120,7 +123,9 @@ export default function ResumePage() {
                                     <CardContent>
                                         <div className="flex flex-wrap gap-2">
                                             {skill.items.map((item, i) => (
-                                                <Badge key={i} variant="secondary" className="hover:scale-105 transition-transform duration-200">
+                                                <Badge
+                                                    key={i} variant="secondary"
+                                                    className="hover:scale-105 transition-transform duration-200">
                                                     {item}
                                                 </Badge>
                                             ))}
@@ -145,7 +150,8 @@ export default function ResumePage() {
                                     onClick={() => setSelectedAchievement(achievement)}
                                     className="text-left"
                                 >
-                                    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 h-full">
+                                    <Card
+                                        className="overflow-hidden hover:shadow-lg transition-shadow duration-200 h-full">
                                         <div className="aspect-video bg-muted flex items-center justify-center p-4">
                                             <img
                                                 src={achievement.image}
@@ -165,8 +171,9 @@ export default function ResumePage() {
                                             <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                                                 {achievement.description}
                                             </p>
-                                            <span className="text-xs text-primary hover:underline inline-flex items-center">
-                                                Read more <ExternalLink className="ml-1 h-3 w-3" />
+                                            <span
+                                                className="text-xs text-primary hover:underline inline-flex items-center">
+                                                Read more <ExternalLink className="ml-1 h-3 w-3"/>
                                             </span>
                                         </CardContent>
                                     </Card>
@@ -206,7 +213,7 @@ export default function ResumePage() {
                                 rel="noopener noreferrer"
                                 className="text-sm text-primary hover:underline inline-flex items-center"
                             >
-                                Visit Website <ExternalLink className="ml-1 h-4 w-4" />
+                                Visit Website <ExternalLink className="ml-1 h-4 w-4"/>
                             </Link>
                         )}
                     </DialogContent>

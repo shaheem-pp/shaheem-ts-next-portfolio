@@ -7,7 +7,29 @@ export type Achievement = {
     image: string;
 };
 
-export const experiences = [
+export type Experience = {
+    title: string;
+    company: string;
+    duration: string;
+    location: string;
+    role?: string;
+    responsibilities?: string[];
+};
+
+
+export const experiences: Experience[] = [
+    {
+        title: "Product Engineer",
+        company: "Unit Villa",
+        duration: "May 2025 - Present",
+        location: "Vancouver, British Columbia, Canada",
+        role: "Remote",
+        responsibilities: [
+            "Developing a cross-platform application using React Native for mobile and Node.js for backend services.",
+            "Collaborating on full-stack features and user flows across mobile and web platforms using Next.js.",
+            "Writing scalable, modular backend logic with a strong emphasis on performance, maintainability, and service orchestration."
+        ],
+    },
     {
         title: "Backend Developer",
         company: "Agua India",
@@ -81,27 +103,75 @@ export const education = [
 export const skills = [
     {
         category: "Backend Development",
-        items: ["Django", "REST APIs", "Python", "System Design", "JWT Authentication"]
+        items: [
+            "Node.js",
+            "Express.js",
+            "Django",
+            "Python",
+            "REST APIs",
+            "Microservices",
+            "System Design",
+            "JWT Authentication"
+        ]
     },
     {
-        category: "Frontend & UI Development",
-        items: ["React", "JavaScript", "HTML/CSS", "Bootstrap", "Tailwind CSS", "AJAX", "jQuery", "Next.js"]
-    },
-    {
-        category: "Mobile Development",
-        items: ["Swift", "SwiftUI", "UIKit", "Xcode"]
+        category: "Frontend & Mobile Development",
+        items: [
+            "React.js",
+            "React Native",
+            "Next.js",
+            "JavaScript",
+            "HTML/CSS",
+            "Tailwind CSS",
+            "Bootstrap",
+            "Swift",
+            "SwiftUI",
+            "UIKit"
+        ]
     },
     {
         category: "Cloud & DevOps",
-        items: ["AWS (EC2, S3, RDS)", "DigitalOcean", "Docker", "CI/CD", "Git", "GitHub", "Vercel"]
+        items: [
+            "AWS (EC2, S3, RDS)",
+            "DigitalOcean",
+            "Vercel",
+            "Docker",
+            "CI/CD",
+            "Git",
+            "GitHub"
+        ]
     },
     {
-        category: "Database & GIS",
-        items: ["PostgreSQL", "PostGIS", "MySQL", "SQLite"]
+        category: "Databases & GIS",
+        items: [
+            "MongoDB",
+            "PostgreSQL",
+            "PostGIS",
+            "MySQL",
+            "SQLite"
+        ]
     },
     {
-        category: "Developer Tools & Collaboration",
-        items: ["Postman", "Chrome DevTools", "Figma", "Notion"]
+        category: "AI & Automation",
+        items: [
+            "OpenAI API",
+            "N8N",
+            "Prompt Engineering",
+            "LangChain (Beginner)",
+            "Agent-based Systems (Exploring)"
+        ]
+    },
+    {
+        category: "Tools & Collaboration",
+        items: [
+            "Postman",
+            "Figma",
+            "Notion",
+            "Chrome DevTools",
+            "Slack",
+            "Trello",
+            "Discord"
+        ]
     }
 ];
 

@@ -37,13 +37,13 @@ export const myvalues = [
 
 export const topSkills = [
     "Django",
+    "Node.js",
     "REST APIs",
-    "PostgreSQL",
-    "PostGIS",
-    "React",
+    "PostgreSQL/PostGIS",
+    "React.js",
     "AWS (EC2, S3, RDS)",
-    "Docker",
-    "SwiftUI",
     "System Design",
+    "SwiftUI",
+    "Docker",
     "Git/GitHub"
 ];
