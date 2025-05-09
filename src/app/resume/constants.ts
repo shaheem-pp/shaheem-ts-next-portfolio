@@ -25,9 +25,9 @@ export const experiences: Experience[] = [
         location: "Vancouver, British Columbia, Canada",
         role: "Remote",
         responsibilities: [
-            "Developing a cross-platform application using React Native for mobile and Node.js for backend services.",
-            "Collaborating on full-stack features and user flows across mobile and web platforms using Next.js.",
-            "Writing scalable, modular backend logic with a strong emphasis on performance, maintainability, and service orchestration."
+            "Building and maintaining full-stack applications across web and mobile platforms using React Native, Next.js, Node.js, and Python.",
+            "Designing and implementing scalable backend systems, APIs, and database schemas with MongoDB for efficient data handling and business logic.",
+            "Integrating AI-powered features to enhance product functionality and deliver intelligent user experiences.",
         ],
     },
     {
