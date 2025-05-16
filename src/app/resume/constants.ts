@@ -102,12 +102,13 @@ export const education = [
 
 export const skills = [
     {
-        category: "Backend Development",
+        category: "Backend Engineering",
         items: [
+            "FastAPI",
+            "Python",
             "Node.js",
             "Express.js",
             "Django",
-            "Python",
             "REST APIs",
             "Microservices",
             "System Design",
@@ -118,23 +119,34 @@ export const skills = [
         category: "Frontend & Mobile Development",
         items: [
             "React.js",
-            "React Native",
             "Next.js",
+            "Tailwind CSS",
             "JavaScript",
             "HTML/CSS",
-            "Tailwind CSS",
             "Bootstrap",
+            "React Native",
             "Swift",
             "SwiftUI",
             "UIKit"
         ]
     },
     {
-        category: "Cloud & DevOps",
+        category: "Databases & Data Systems",
         items: [
+            "MongoDB",
+            "PostgreSQL",
+            "MySQL",
+            "SQLite",
+            "PostGIS"
+        ]
+    },
+    {
+        category: "Cloud Platforms & DevOps",
+        items: [
+            "Vercel",
             "AWS (EC2, S3, RDS)",
             "DigitalOcean",
-            "Vercel",
+            "Azure",
             "Docker",
             "CI/CD",
             "Git",
@@ -142,31 +154,21 @@ export const skills = [
         ]
     },
     {
-        category: "Databases & GIS",
-        items: [
-            "MongoDB",
-            "PostgreSQL",
-            "PostGIS",
-            "MySQL",
-            "SQLite"
-        ]
-    },
-    {
-        category: "AI & Automation",
+        category: "AI, Automation & Integrations",
         items: [
             "OpenAI API",
             "N8N",
             "Prompt Engineering",
-            "LangChain (Beginner)",
-            "Agent-based Systems (Exploring)"
+            "LangChain",
+            "Agent-based Systems"
         ]
     },
     {
-        category: "Tools & Collaboration",
+        category: "Developer Experience & Collaboration",
         items: [
             "Postman",
-            "Figma",
             "Notion",
+            "Figma",
             "Chrome DevTools",
             "Slack",
             "Trello",
