@@ -10,28 +10,28 @@ export const highlights = [
 
 export const myvalues = [
     {
-        title: "Clean Code",
-        description: "I write maintainable, modular code that aligns with industry best practices — making it easy to scale and hand off."
+        title: "Clean, Modular Code",
+        description: "I focus on writing code that's readable, testable, and easy to extend — built for teams, not just machines."
     },
     {
-        title: "User-Focused Thinking",
-        description: "Whether it's an NGO system or a vendor dashboard, I prioritize usability and real-world impact over fancy features."
+        title: "User-Centered Design",
+        description: "I build with real users in mind — aiming for clear interfaces, useful features, and minimal friction."
     },
     {
-        title: "Practical Problem Solving",
-        description: "From delivery optimizations to geospatial route planning, I enjoy solving meaningful problems with efficient solutions."
+        title: "Problem-First Approach",
+        description: "I enjoy breaking down complex issues — from logistics to AI pipelines — into simple, working solutions."
     },
     {
-        title: "Collaborative Spirit",
-        description: "I thrive in team environments — mentoring students, working with designers, or shipping with cross-functional teams."
+        title: "Team-Oriented Development",
+        description: "I work well with engineers, designers, and stakeholders — and I value clear communication over perfect code."
     },
     {
-        title: "Community-Driven",
-        description: "Tech should uplift. I’ve led student chapters, onboarded campuses, and built tools for social good — and I’ll keep doing it."
+        title: "Community Contribution",
+        description: "I’ve organized student tech events and built tools for education and social good — and I stay involved where I can help."
     },
     {
-        title: "Growth Mindset",
-        description: "I'm always learning — whether it’s SwiftUI, CI/CD, or just better ways to approach code and teamwork."
+        title: "Always Improving",
+        description: "I regularly explore new tools, patterns, and workflows — not to chase trends, but to sharpen my craft."
     }
 ];
 
