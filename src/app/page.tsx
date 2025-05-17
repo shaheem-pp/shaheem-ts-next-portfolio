@@ -31,18 +31,16 @@ export default function Home() {
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
                                 <Badge variant="outline" className="text-sm">
-                                    Backend-focused Full Stack Developer
+                                    Product Engineer • AI & Systems
                                 </Badge>
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl">
-                                    Helping businesses to{" "}
+                                    Building systems that power{" "}
                                     <span
-                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">go online and grow faster
-                                    </span>
+                                        className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text"> real products</span>
                                 </h1>
                                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                    I’m Shaheem — a backend-focused full stack developer who builds scalable, efficient
-                                    applications using Django, React, and cloud technologies. I focus on solving
-                                    real-world problems with clean code and thoughtful architecture.
+                                    I'm Shaheem — a Product Engineer who blends backend architecture, AI integration,
+                                    and product thinking to build software that scales and solves real problems.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -86,9 +84,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center">
-                            <div
-                                className="relative aspect-square overflow-hidden rounded-full border p-2">
-                                {/*className="relative aspect-square overflow-hidden rounded-full border bg-gradient-to-b from-purple-600/20 to-pink-600/20 p-2">*/}
+                            <div className="relative aspect-square overflow-hidden rounded-full border p-2">
                                 <img
                                     src="/image/linkedin-profile.png"
                                     alt="Shaheem PP"
@@ -110,20 +106,20 @@ export default function Home() {
                             About Me
                         </h2>
                         <p className="max-w-[85%] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            I’m a backend-focused full stack developer with 2 years of experience building scalable
-                            systems, intuitive dashboards, and real-world apps that work.
+                            I’m a Product Engineer with 2 years of experience turning technical complexity into
+                            real-world impact — through scalable systems, human-centric tools, and fast-moving
+                            prototypes.
                         </p>
                         <Separator className="my-4"/>
                         <div className="flex flex-col gap-8 md:gap-12 text-left">
                             <div>
                                 <h3 className="text-xl font-bold mb-3">My Expertise</h3>
                                 <p className="text-muted-foreground mb-4">
-                                    I specialize in Django and enjoy developing secure, high-performance systems that
-                                    solve real-world problems.
-                                    I'm currently pursuing a Post Graduate program in Full Stack Software Development in
-                                    Toronto,
-                                    constantly learning and refining my skills in backend architecture, API development,
-                                    and cloud deployment.
+                                    I specialize in backend-first product development — designing APIs, integrating AI,
+                                    and building systems that scale.
+                                    I'm currently based in Toronto, pursuing a Post Graduate program in Full Stack
+                                    Software Development while actively working on AI-integrated tools and internal
+                                    platforms.
                                 </p>
                                 <div className="flex flex-wrap justify-center gap-3 pt-6">
                                     {topSkills.map((skill, index) => (
@@ -144,9 +140,9 @@ export default function Home() {
                             <div>
                                 <h3 className="text-xl font-bold mb-3">My Approach</h3>
                                 <p className="text-muted-foreground">
-                                    I’m passionate about improving workflows, building user-centric dashboards, and
-                                    collaborating with teams to deliver real value. I love solving meaningful problems
-                                    with clean architecture and scalable code.
+                                    I believe product engineers should build with purpose. Whether it's launching MVPs
+                                    or refining production systems, I focus on fast feedback loops, clean abstractions,
+                                    and delivering value — not just code.
                                 </p>
                             </div>
                         </div>
