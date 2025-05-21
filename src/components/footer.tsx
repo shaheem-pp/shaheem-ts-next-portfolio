@@ -10,8 +10,10 @@ const footerMessages = [
     "No post-credit scene. Just silence.",
     "Here lies the last line.",
     "Mischief managed.",
-    "There’s no reward for scrolling. But thanks.",
     "This is Berk. And this is the end of it.",
+    "End of line.",
+    "You either scroll to the top, or live long enough to reach the footer.",
+    "This is the way. But it ends here.",
 ];
 
 const Footer = () => {
