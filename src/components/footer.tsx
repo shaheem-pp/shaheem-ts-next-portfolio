@@ -1,59 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import {Github, Linkedin, Mail} from "lucide-react";
+import {useEffect, useState} from "react";
+
+const footerMessages = [
+    "You've reached the bottom. There's nothing more.",
+    "That's it. No secrets here.",
+    "End of page. Beginning of reflection?",
+    "No post-credit scene. Just silence.",
+    "Here lies the last line.",
+    "Mischief managed.",
+    "There’s no reward for scrolling. But thanks.",
+    "This is Berk. And this is the end of it.",
+];
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const [randomMessage, setRandomMessage] = useState<string | null>(null);
+    const [hovered, setHovered] = useState(false);
+
+    // Ensure this only runs on the client
+    useEffect(() => {
+        const index = Math.floor(Math.random() * footerMessages.length);
+        setRandomMessage(footerMessages[index]);
+    }, []);
 
     return (
-        <footer className="border-t bg-background">
-            <div className="container py-8 md:py-12">
-                <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-                    <div className="flex flex-col gap-2 text-center md:text-left">
-                        <Link href="/" className="text-lg font-bold">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
-                shaheem.dev
-              </span>
-                        </Link>
-                        <p className="text-sm text-muted-foreground">
-                            Backend-focused Full Stack Developer
-                        </p>
-                    </div>
-                    <div className="flex gap-4">
-                        <Link
-                            href="https://github.com/shaheem-pp"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                        >
-                            <Github className="h-5 w-5"/>
-                        </Link>
-                        <Link
-                            href="https://www.linkedin.com/in/shaheem-pp/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                        >
-                            <Linkedin className="h-5 w-5"/>
-                        </Link>
-                        <Link
-                            href="mailto:mail@shaheem.dev"
-                            aria-label="Email"
-                            className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                        >
-                            <Mail className="h-5 w-5"/>
-                        </Link>
-                    </div>
-                </div>
-                <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-                    <p>© {currentYear} shaheem.dev. All rights reserved.</p>
-                    <p className="mt-2 text-xs">
-                        Made with ❤️ using Next.js & Tailwind CSS
+        <footer
+            className="bg-neutral-50 text-muted-foreground text-center text-sm py-12 select-none transition-colors duration-300"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
+            <div className="flex justify-center items-center flex-wrap gap-4 px-4">
+                <Link href="/" className="font-semibold tracking-wide hover:underline">
+                    shaheem.dev
+                </Link>
+
+                <span className="text-gray-300">/</span>
+
+                <span>
+          {hovered
+              ? "Looking for the footer? 👀"
+              : `© ${currentYear} shaheem.dev`}
+        </span>
+            </div>
+
+            {/* Only render once randomMessage is set (after client mount) */}
+            <div className="mt-4 h-5">
+                {randomMessage && (
+                    <p
+                        className={`text-xs italic text-gray-400 transition-opacity duration-300 ${
+                            hovered ? "opacity-100" : "opacity-0"
+                        }`}
+                    >
+                        {randomMessage}
                     </p>
-                </div>
+                )}
             </div>
         </footer>
     );
