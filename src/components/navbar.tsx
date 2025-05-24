@@ -1,5 +1,3 @@
-// src/components/navbar.tsx
-
 "use client";
 
 import Link from "next/link";
@@ -9,8 +7,8 @@ import {Menu} from "lucide-react";
 
 import {ModeToggle} from "@/components/mode-toggle";
 import {Button} from "@/components/ui/button";
-import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
-import {cn} from "@/lib/utils"; // Make sure you have this utility for class merging
+import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger,} from "@/components/ui/sheet";
+import {cn} from "@/lib/utils";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +27,14 @@ const Navbar = () => {
             className="sticky top-0 z-50 w-full border-b bg-background/75 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between">
                 <Link href="/" className="flex items-center gap-2">
-                    <span
-                        className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
-                        shaheem.dev
-                    </span>
+          <span
+              className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+            shaheem.dev
+          </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6">
+                <nav className="hidden md:flex items-center gap-2">
                     {links.map((link) => {
                         const isActive = pathname === link.href;
                         return (
@@ -44,8 +42,10 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors hover:text-primary",
-                                    isActive && "text-primary"
+                                    "text-sm font-medium px-3 py-2 rounded-md transition-all duration-200",
+                                    isActive
+                                        ? "text-primary bg-muted/60"
+                                        : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                                 )}
                             >
                                 {link.name}
@@ -72,16 +72,16 @@ const Navbar = () => {
                         <SheetContent side="right">
                             <SheetHeader>
                                 <SheetTitle>
-                                    <span
-                                        className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
-                                        shaheem.dev
-                                    </span>
+                  <span
+                      className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+                    shaheem.dev
+                  </span>
                                 </SheetTitle>
                                 <SheetDescription>
-                                    Full Stack Developer specializing in Django & React
+                                    Product Engineer · Building systems that power real products
                                 </SheetDescription>
                             </SheetHeader>
-                            <div className="grid gap-4 py-6">
+                            <div className="grid gap-2 py-6">
                                 {links.map((link) => {
                                     const isActive = pathname === link.href;
                                     return (
@@ -89,8 +89,10 @@ const Navbar = () => {
                                             key={link.name}
                                             href={link.href}
                                             className={cn(
-                                                "text-base font-medium transition-colors hover:text-primary",
-                                                isActive && "text-primary"
+                                                "text-base font-medium px-3 py-2 rounded-md transition-all duration-200",
+                                                isActive
+                                                    ? "text-primary bg-muted/60"
+                                                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                                             )}
                                             onClick={() => setIsOpen(false)}
                                         >
