@@ -120,7 +120,7 @@ export const projects = [{
     featured: false
 }, {
     title: "Web Builder",
-    image: "Project/images/web builder/webbuilder.png",
+    image: "Project/images/web builder/build3.png",
     shortContent: "A Shopify alternative for Kerala businesses, offering custom domains, themes, and e-commerce management.",
     description: "<p><strong>Web Builder</strong> is a powerful e-commerce platform designed as a localized alternative to Shopify and Dhukhaan, tailored specifically for businesses in Kerala.</p>        <h5>Key Features:</h5>        <ul>            <li><strong>Easy Store Setup:</strong> Business owners can launch their online store with just a few clicks, without any coding knowledge.</li>            <li><strong>Custom Domains & Branding:</strong> Allows users to connect their own domain and Personal Projectize storefronts with unique themes.</li>            <li><strong>Flexible Product Management:</strong> Simplified inventory handling, pricing controls, and order tracking.</li>            <li><strong>Payment Gateway Integration:</strong> Supports local and global payment solutions for seamless transactions.</li>            <li><strong>Built-in SEO & Analytics:</strong> Helps businesses improve visibility and track performance effortlessly.</li>            <li><strong>Scalable & Affordable:</strong> A cost-effective solution compared to international platforms, with features tailored for local market needs.</li>        </ul>        <p>Designed to empower small and medium-sized businesses, <em>Web Builder</em> bridges the gap between local entrepreneurs and digital commerce, making online selling more accessible and profitable.</p>",
     links: {},
