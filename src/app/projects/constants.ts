@@ -167,7 +167,7 @@ export const projects = [
         stack: ["SwiftUI", "MapKit", "CoreLocation", "Xcode"],
         status: "Completed",
         category: "Learning Project",
-        featured: true
+        featured: false
     }, {
         title: "TPLBrowser",
         image: "Project/images/ios/TPL.png",
@@ -198,7 +198,7 @@ export const projects = [
         stack: ["SwiftUI", "MapKit", "CoreLocation", "WebKit", "GeoJSON", "Xcode"],
         status: "Completed",
         category: "Learning Project",
-        featured: true
+        featured: false
     }, {
         title: "Explore Bikes",
         image: "Project/images/explore/exp.png",
