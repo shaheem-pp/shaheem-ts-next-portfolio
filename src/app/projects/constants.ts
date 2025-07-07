@@ -166,7 +166,38 @@ export const projects = [
         },
         stack: ["SwiftUI", "MapKit", "CoreLocation", "Xcode"],
         status: "Completed",
-        category: "iOS Project",
+        category: "Learning Project",
+        featured: true
+    }, {
+        title: "TPLBrowser",
+        image: "Project/images/ios/TPL.png",
+        shortContent: "A SwiftUI-based browser and map app to explore Toronto Public Library branches with WebKit integration.",
+        description: `<h5>TPLBrowser – Toronto Public Library Explorer</h5>
+        <p><strong>TPLBrowser</strong> is a SwiftUI-based iOS application that lets users explore Toronto Public Library branches with an interactive map, location services, and in-app browser functionality.</p>
+        
+        <h5>Key Features:</h5>
+        <ul>
+          <li><strong>MapKit Integration:</strong> Displays all TPL branches on a map with location pins and details.</li>
+          <li><strong>GeoJSON Parsing:</strong> Parses real branch data from Toronto’s open data GeoJSON feed to render markers dynamically.</li>
+          <li><strong>WebKit Embedded Browser:</strong> Allows users to browse the TPL website within the app using WKWebView.</li>
+          <li><strong>Swift Concurrency:</strong> Uses <code>async/await</code> to fetch and decode data efficiently.</li>
+          <li><strong>CoreLocation Support:</strong> Displays user's location and alerts when location permissions are denied.</li>
+        </ul>
+        
+        <h5>My Contributions:</h5>
+        <ul>
+          <li>Designed and built the entire UI using SwiftUI with MVVM architecture.</li>
+          <li>Implemented location permission alerts, error handling, and web navigation logic.</li>
+          <li>Parsed complex GeoJSON into Swift structs for mapping purposes.</li>
+        </ul>
+        
+        <p><strong>TPLBrowser</strong> combines education, civic data, and clean UI to offer a lightweight but purposeful tool for navigating public libraries in Toronto.</p>`,
+        links: {
+            "bi bi-github": "https://github.com/shaheem-pp/TPLBrowser"
+        },
+        stack: ["SwiftUI", "MapKit", "CoreLocation", "WebKit", "GeoJSON", "Xcode"],
+        status: "Completed",
+        category: "Learning Project",
         featured: true
     }, {
         title: "Explore Bikes",
