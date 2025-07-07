@@ -138,6 +138,37 @@ export const projects = [
         category: "Hackathon Project",
         featured: true
     }, {
+        title: "QiblaDirection",
+        image: "Project/images/ios/Qibla.png",
+        shortContent: "A SwiftUI-based iOS app that helps users find the Qibla direction accurately using CoreLocation and MapKit.",
+        description: `  <h5>QiblaDirection – SwiftUI Qibla Finder</h5>
+                        <p><strong>QiblaDirection</strong> is a lightweight and intuitive iOS app built using <strong>SwiftUI</strong> that helps users determine the direction of the Qibla from any location using real-time compass and map data.</p>
+                        
+                        <h5>Key Features:</h5>
+                        <ul>
+                          <li><strong>Real-time Compass:</strong> Utilizes device sensors to display the exact Qibla direction dynamically.</li>
+                          <li><strong>MapKit Integration:</strong> Visual Qibla line overlayed on the map for geographic orientation.</li>
+                          <li><strong>CoreLocation Services:</strong> Automatically detects and updates the user’s current location.</li>
+                          <li><strong>Minimal UI:</strong> Clean and focused interface built with SwiftUI principles.</li>
+                        </ul>
+                        
+                        <h5>My Contributions:</h5>
+                        <ul>
+                          <li>Developed the entire app UI using SwiftUI with compass and map views.</li>
+                          <li>Integrated CoreLocation for dynamic user positioning.</li>
+                          <li>Implemented Qibla angle calculation logic using Haversine formula.</li>
+                        </ul>
+                        
+                        <p><strong>QiblaDirection</strong> offers a simple but valuable tool for Muslims to confidently pray in the correct direction, even while traveling.</p>
+                    `,
+        links: {
+            "bi bi-github": "https://github.com/shaheem-pp/QiblaDirection-swiftui"
+        },
+        stack: ["SwiftUI", "MapKit", "CoreLocation", "Xcode"],
+        status: "Completed",
+        category: "iOS Project",
+        featured: true
+    }, {
         title: "Explore Bikes",
         image: "Project/images/explore/exp.png",
         shortContent: "A web platform for scheduling test drives and vehicle maintenance appointments.",
