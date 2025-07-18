@@ -38,12 +38,12 @@ export const myvalues = [
 export const topSkills = [
     "FastAPI",
     "Python",
+    "Django",
+    "Node.js",
     "React.js",
-    "Next.js",
-    "Tailwind CSS",
-    "MongoDB",
+    "TypeScript",
     "PostgreSQL",
-    "OpenAI API",
-    "Docker",
-    "Git"
+    "AWS",
+    "SwiftUI",
+    "AWS"
 ];

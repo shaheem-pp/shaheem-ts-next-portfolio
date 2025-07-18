@@ -109,10 +109,12 @@ export const skills = [
             "Node.js",
             "Express.js",
             "Django",
+            "Flask",
             "REST APIs",
             "Microservices",
             "System Design",
-            "JWT Authentication"
+            "JWT Authentication",
+            "pytube"
         ]
     },
     {
@@ -127,7 +129,10 @@ export const skills = [
             "React Native",
             "Swift",
             "SwiftUI",
-            "UIKit"
+            "UIKit",
+            "MapKit",
+            "CoreLocation",
+            "WebKit"
         ]
     },
     {
@@ -137,7 +142,8 @@ export const skills = [
             "PostgreSQL",
             "MySQL",
             "SQLite",
-            "PostGIS"
+            "PostGIS",
+            "GeoJSON"
         ]
     },
     {
@@ -160,7 +166,10 @@ export const skills = [
             "N8N",
             "Prompt Engineering",
             "LangChain",
-            "Agent-based Systems"
+            "Agent-based Systems",
+            "WhatsApp Cloud API",
+            "Google Maps Matrix API",
+            "Gemini AI"
         ]
     },
     {
