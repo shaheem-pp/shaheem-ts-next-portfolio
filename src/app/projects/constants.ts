@@ -321,6 +321,37 @@ export const projects = [
         status: "Completed",
         category: "Learning Project",
         featured: false,
+    }, {
+        title: "WordWeaver",
+        image: "Project/images/wordweaver/cover.png",
+        shortContent:
+            "A minimalist web app that transforms user input into beautifully animated typographic art using Flask and WebGL.",
+        description: `<h5>WordWeaver – Typographic Visualizer</h5>
+<p><strong>WordWeaver</strong> is a Flask-based generative design application that brings typography to life. It turns user-provided text into dynamic, animated visuals using the power of WebGL, p5.js, and shader magic—right from the browser.</p>
+
+<h5>Key Features:</h5>
+<ul>
+  <li><strong>Interactive Input:</strong> Users can input any word or phrase to instantly generate personalized typographic animations.</li>
+  <li><strong>WebGL Rendering:</strong> Renders characters in real-time using fragment shaders, vertex shaders, and a clean visual pipeline.</li>
+  <li><strong>Minimalist Design:</strong> Clean UI focused on showcasing the visuals with subtle motion and glowing effects.</li>
+  <li><strong>Real-time Canvas:</strong> Utilizes HTML5 canvas, p5.js, and Three.js for smooth and responsive visuals.</li>
+</ul>
+
+<h5>My Contributions:</h5>
+<ul>
+  <li>Developed the Flask backend and routing logic for user input processing.</li>
+  <li>Integrated WebGL shaders to animate and morph text into glowing typographic art.</li>
+  <li>Designed a dark, studio-themed interface optimized for focus and immersion.</li>
+</ul>
+
+<p><strong>WordWeaver</strong> is not just a visual toy—it’s a statement piece combining creativity, code, and real-time rendering, aimed at exploring the intersection of language and generative art.</p>`,
+        links: {
+            "bi bi-github": "https://github.com/shaheem-pp/WordWeaver-flask",
+        },
+        stack: ["Flask", "HTML", "CSS", "JavaScript", "p5.js", "WebGL"],
+        status: "Completed",
+        category: "Personal Project",
+        featured: false,
     },
     {
         title: "Explore Bikes",
