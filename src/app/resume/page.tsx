@@ -3,6 +3,7 @@
 import {useState} from "react";
 import Link from "next/link";
 import {Download, ExternalLink} from "lucide-react";
+import Image from "next/image";
 
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
@@ -153,10 +154,12 @@ export default function ResumePage() {
                                     <Card
                                         className="overflow-hidden hover:shadow-lg transition-shadow duration-200 h-full">
                                         <div className="aspect-video bg-muted flex items-center justify-center p-4">
-                                            <img
+                                            <Image
                                                 src={achievement.image}
                                                 alt={achievement.title}
                                                 className="object-contain h-full max-h-[100px]"
+                                                width={100}
+                                                height={100}
                                             />
                                         </div>
                                         <CardHeader>
@@ -189,10 +192,12 @@ export default function ResumePage() {
                 <Dialog open={!!selectedAchievement} onOpenChange={() => setSelectedAchievement(null)}>
                     <DialogContent className="max-w-md">
                         <div className="aspect-video bg-muted flex items-center justify-center p-4 rounded-md mb-4">
-                            <img
+                            <Image
                                 src={selectedAchievement.image}
                                 alt={selectedAchievement.title}
                                 className="object-contain h-full max-h-[150px]"
+                                width={150}
+                                height={150}
                             />
                         </div>
                         <DialogHeader>

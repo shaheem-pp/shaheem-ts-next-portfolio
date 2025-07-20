@@ -10,6 +10,7 @@ import {Code, Filter} from "lucide-react";
 import ProjectModal from "@/components/modal";
 import {Project, projects} from "@/app/projects/constants";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 
 const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
 const statuses = ["All", ...Array.from(new Set(projects.map(p => p.status)))];
@@ -131,7 +132,7 @@ export default function ProjectsPage() {
                                     onClick={() => openProject(project)}
                                 >
                                     <div className="aspect-video w-full overflow-hidden">
-                                        <img
+                                        <Image
                                             src={project.image}
                                             alt={project.title}
                                             className="object-cover w-full h-full"

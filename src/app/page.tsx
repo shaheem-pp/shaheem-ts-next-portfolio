@@ -7,6 +7,7 @@ import {Badge} from "@/components/ui/badge";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Separator} from "@/components/ui/separator";
 import Link from "next/link";
+import Image from "next/image";
 import {ArrowRight, Code, Github, Linkedin, Mail} from "lucide-react";
 
 import {useState} from "react";
@@ -85,7 +86,7 @@ export default function Home() {
                         </div>
                         <div className="flex items-center justify-center">
                             <div className="relative aspect-square overflow-hidden rounded-full border p-2">
-                                <img
+                                <Image
                                     src="/image/linkedin-profile.png"
                                     alt="Shaheem PP"
                                     width={400}
@@ -176,7 +177,7 @@ export default function Home() {
                                 onClick={() => openProject(project)}
                             >
                                 <div className="aspect-video w-full overflow-hidden">
-                                    <img
+                                    <Image
                                         src={project.image}
                                         alt={project.title}
                                         className="object-cover w-full h-full"

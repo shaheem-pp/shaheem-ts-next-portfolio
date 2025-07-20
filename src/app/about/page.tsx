@@ -4,6 +4,7 @@ import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight, CheckCircle2} from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {highlights, myvalues, topSkills} from "@/app/about/constants";
 import {Badge} from "@/components/ui/badge"; // for condensed skills display
 
@@ -57,7 +58,7 @@ export default function AboutPage() {
                             <div className="space-y-4 w-full">
                                 <div
                                     className="aspect-square overflow-hidden rounded-xl bg-gradient-to-b from-purple-600/20 to-pink-600/20 p-2">
-                                    <img
+                                    <Image
                                         src="https://ext.same-assets.com/3659750609/2569368412.png"
                                         alt="Shaheem PP"
                                         width={500}

@@ -6,6 +6,7 @@ import {Dialog, Transition} from '@headlessui/react';
 import {Fragment} from 'react';
 import {ExternalLink, X} from 'lucide-react';
 import {Badge} from "@/components/ui/badge";
+import Image from "next/image";
 
 import {Project} from "@/app/projects/constants";
 
@@ -63,10 +64,12 @@ export default function ProjectModal({isOpen, closeModal, project}: ProjectModal
 
                                     {/* Image */}
                                     <div className="rounded-lg overflow-hidden bg-gray-100 dark:bg-zinc-800 p-2">
-                                        <img
+                                        <Image
                                             src={project.image}
                                             alt={project.title}
                                             className="w-full object-cover max-h-[70vh] rounded-md"
+                                            width={800}
+                                            height={450}
                                         />
                                     </div>
 
