@@ -2,7 +2,7 @@
 
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useState, useCallback} from "react";
 import {Badge} from "@/components/ui/badge";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
@@ -21,6 +21,8 @@ export default function ProjectsPage() {
     const [filterStatus, setFilterStatus] = useState("All");
     const [isMobile, setIsMobile] = useState(false);
     const [showFilters, setShowFilters] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [visibleProjects, setVisibleProjects] = useState<Project[]>([]);
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -29,14 +31,33 @@ export default function ProjectsPage() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        const filteredProjects = projects.filter(project => {
+            const matchCategory = filterCategory === "All" || project.category === filterCategory;
+            const matchStatus = filterStatus === "All" || project.status === filterStatus;
+            return matchCategory && matchStatus;
+        });
+        setVisibleProjects(filteredProjects.slice(0, currentPage * 6));
+    }, [filterCategory, filterStatus, currentPage]);
+
+    const loadMoreProjects = useCallback(() => {
+        setCurrentPage(prevPage => prevPage + 1);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (
+                window.innerHeight + window.scrollY >= document.body.offsetHeight - 200
+            ) {
+                loadMoreProjects();
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [loadMoreProjects]);
+
     const openProject = (project: Project) => setSelectedProject(project);
     const closeModal = () => setSelectedProject(null);
-
-    const filteredProjects = projects.filter(project => {
-        const matchCategory = filterCategory === "All" || project.category === filterCategory;
-        const matchStatus = filterStatus === "All" || project.status === filterStatus;
-        return matchCategory && matchStatus;
-    });
 
     const isFiltered = filterCategory !== "All" || filterStatus !== "All";
 
@@ -106,7 +127,7 @@ export default function ProjectsPage() {
                                     </div>
 
                                     <div className="text-sm text-muted-foreground mt-2">
-                                        Showing <strong>{filteredProjects.length}</strong> project{filteredProjects.length !== 1 && "s"}
+                                        Showing <strong>{visibleProjects.length}</strong> project{visibleProjects.length !== 1 && "s"}
                                     </div>
 
                                     <div className="flex gap-2 mt-4">
@@ -124,21 +145,30 @@ export default function ProjectsPage() {
 
                     {/* Projects Grid */}
                     <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-8 py-8">
-                        {filteredProjects.length > 0 ? (
-                            filteredProjects.map((project, index) => (
+                        {visibleProjects.length > 0 ? (
+                            visibleProjects.map((project, index) => (
                                 <Card
                                     key={index}
                                     className="flex flex-col overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-lg hover:dark:shadow-lg hover:dark:shadow-accent"
                                     onClick={() => openProject(project)}
                                 >
-                                    <div className="aspect-video w-full overflow-hidden">
+                                    <div className="aspect-video w-full overflow-hidden relative">
                                         <Image
                                             src={project.image}
                                             alt={project.title}
                                             className="object-cover w-full h-full"
                                             width={300}
                                             height={170}
+                                            loading="lazy"
                                         />
+                                        {project.featured && (
+                                            <Badge
+                                                variant="default"
+                                                className="absolute top-2 left-2 bg-primary text-white px-2 py-1 text-xs"
+                                            >
+                                                ☆ Featured
+                                            </Badge>
+                                        )}
                                     </div>
                                     <CardHeader>
                                         <CardTitle>{project.title}</CardTitle>
