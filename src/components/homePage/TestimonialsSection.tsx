@@ -3,12 +3,55 @@
 "use client";
 
 import { testimonials } from "@/app/testimonials/constants";
+import TestimonialModal from "@/components/TestimonialModal";
 import { ChevronLeft, ChevronRight, Pause, Play, Quote } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function TestimonialsSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTestimonial, setModalTestimonial] = useState(testimonials[0]);
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [clampedStates, setClampedStates] = useState<boolean[]>([]);
+  const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+
+  // Function to check if text is clamped
+  const isTextClamped = useCallback((element: HTMLElement | null) => {
+    if (!element) return false;
+    // Add a small tolerance to account for subpixel rendering
+    return element.scrollHeight > element.clientHeight + 1;
+  }, []);
+
+  // Function to update clamped states for all testimonials
+  const updateClampedStates = useCallback(() => {
+    const newClampedStates = textRefs.current.map((ref) => isTextClamped(ref));
+    setClampedStates(newClampedStates);
+  }, [isTextClamped]);
+
+  // Update clamped states on mount and resize
+  useEffect(() => {
+    updateClampedStates();
+
+    const handleResize = () => {
+      updateClampedStates();
+    };
+
+    window.addEventListener("resize", handleResize);
+    // Use a slight delay to ensure DOM is fully rendered
+    const timer = setTimeout(updateClampedStates, 100);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timer);
+    };
+  }, [updateClampedStates]);
+
+  // Update clamped states when testimonials change
+  useEffect(() => {
+    const timer = setTimeout(updateClampedStates, 100);
+    return () => clearTimeout(timer);
+  }, [currentTestimonial, updateClampedStates]);
 
   // Navigation functions for testimonials
   const nextTestimonial = () => {
@@ -25,16 +68,39 @@ export default function TestimonialsSection() {
     setIsPaused(!isPaused);
   };
 
-  // Auto-rotate testimonials every 10 seconds
+  // Functions to handle modal
+  const openModal = (testimonial: (typeof testimonials)[0]) => {
+    setModalTestimonial(testimonial);
+    setIsModalOpen(true);
+    setIsPaused(true); // Pause auto-rotation when modal opens
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIsPaused(false); // Resume auto-rotation when modal closes
+  };
+
+  // Auto-rotate testimonials every 10 seconds with elapsed time tracking
   useEffect(() => {
-    if (isPaused) return; // Don't rotate if paused
+    if (isPaused || isModalOpen) return; // Don't rotate if paused or modal is open
 
     const interval = setInterval(() => {
-      nextTestimonial();
-    }, 10000); // 10 seconds - enough time to read each testimonial
+      setElapsedTime((prev) => {
+        if (prev >= 10000) {
+          nextTestimonial();
+          return 0;
+        }
+        return prev + 100;
+      });
+    }, 100); // Update every 100ms for smooth tracking
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, isModalOpen]);
+
+  // Reset elapsed time when testimonial changes manually
+  useEffect(() => {
+    setElapsedTime(0);
+  }, [currentTestimonial]);
 
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-purple-700 via-purple-800 to-pink-700 text-white relative overflow-hidden">
@@ -119,9 +185,26 @@ export default function TestimonialsSection() {
 
                       {/* Quote Text */}
                       <blockquote className="text-center flex-1 flex items-center justify-center px-2 sm:px-4 mb-6 md:mb-8">
-                        <p className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl leading-relaxed text-white/95 font-light max-w-full line-clamp-5">
-                          "{testimonial.quote}"
-                        </p>
+                        <div className="max-w-full">
+                          <p
+                            ref={(el) => {
+                              textRefs.current[index] = el;
+                            }}
+                            className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl leading-relaxed text-white/95 font-light max-w-full line-clamp-5"
+                          >
+                            "{testimonial.quote}"
+                          </p>
+                          {/* Show "read more" link if text is clamped - only for current testimonial */}
+                          {index === currentTestimonial &&
+                            clampedStates[index] && (
+                              <button
+                                onClick={() => openModal(testimonial)}
+                                className="mt-2 text-white/80 hover:text-white text-sm underline transition-colors duration-200 font-medium"
+                              >
+                                read more
+                              </button>
+                            )}
+                        </div>
                       </blockquote>
 
                       {/* Author Info */}
@@ -202,6 +285,13 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </div>
+
+      {/* Testimonial Modal */}
+      <TestimonialModal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        testimonial={modalTestimonial}
+      />
     </section>
   );
 }
