@@ -11,9 +11,10 @@ export default function TestimonialsSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTestimonial, setModalTestimonial] = useState(testimonials[0]);
+  const [modalTestimonialIndex, setModalTestimonialIndex] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [clampedStates, setClampedStates] = useState<boolean[]>([]);
+  const [isSyncing, setIsSyncing] = useState(false);
   const textRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   // Function to check if text is clamped
@@ -70,14 +71,39 @@ export default function TestimonialsSection() {
 
   // Functions to handle modal
   const openModal = (testimonial: (typeof testimonials)[0]) => {
-    setModalTestimonial(testimonial);
+    const index = testimonials.findIndex((t) => t === testimonial);
+    setModalTestimonialIndex(index);
     setIsModalOpen(true);
     setIsPaused(true); // Pause auto-rotation when modal opens
   };
 
   const closeModal = () => {
+    // Only sync if the modal testimonial is different from current
+    if (modalTestimonialIndex !== currentTestimonial) {
+      setIsSyncing(true);
+      setCurrentTestimonial(modalTestimonialIndex);
+      // Clear syncing state after animation completes
+      setTimeout(() => setIsSyncing(false), 700);
+    }
+    // Reset elapsed time to give users time to read the synced testimonial
+    setElapsedTime(0);
     setIsModalOpen(false);
     setIsPaused(false); // Resume auto-rotation when modal closes
+  };
+
+  // Modal navigation functions
+  const nextModalTestimonial = () => {
+    setModalTestimonialIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevModalTestimonial = () => {
+    setModalTestimonialIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const goToModalTestimonial = (index: number) => {
+    setModalTestimonialIndex(index);
   };
 
   // Auto-rotate testimonials every 10 seconds with elapsed time tracking
@@ -194,16 +220,23 @@ export default function TestimonialsSection() {
                           >
                             "{testimonial.quote}"
                           </p>
-                          {/* Show "read more" link if text is clamped - only for current testimonial */}
-                          {index === currentTestimonial &&
-                            clampedStates[index] && (
-                              <button
-                                onClick={() => openModal(testimonial)}
-                                className="mt-2 text-white/80 hover:text-white text-sm underline transition-colors duration-200 font-medium"
-                              >
-                                read more
-                              </button>
-                            )}
+                          {/* Show different content based on whether text is clamped - only for current testimonial */}
+                          {index === currentTestimonial && (
+                            <>
+                              {clampedStates[index] ? (
+                                <button
+                                  onClick={() => openModal(testimonial)}
+                                  className="mt-2 text-white/80 hover:text-white text-sm underline transition-colors duration-200 font-medium"
+                                >
+                                  read more
+                                </button>
+                              ) : (
+                                <div className="mt-2 text-white/80 hover:text-white text-sm underline transition-colors duration-200 font-medium invisible">
+                                  Complete testimonial
+                                </div>
+                              )}
+                            </>
+                          )}
                         </div>
                       </blockquote>
 
@@ -290,7 +323,12 @@ export default function TestimonialsSection() {
       <TestimonialModal
         isOpen={isModalOpen}
         closeModal={closeModal}
-        testimonial={modalTestimonial}
+        testimonial={testimonials[modalTestimonialIndex]}
+        currentIndex={modalTestimonialIndex}
+        totalCount={testimonials.length}
+        onNext={nextModalTestimonial}
+        onPrevious={prevModalTestimonial}
+        onGoTo={goToModalTestimonial}
       />
     </section>
   );

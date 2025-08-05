@@ -22,4 +22,12 @@ export const testimonials: Testimonial[] = [
     position: "Co-Founder & CEO",
     company: "Agua India",
   },
+  //   lonest testimonial for testing
+  //   {
+  //     quote:
+  //       "Working with Shaheem has been an absolute pleasure. His technical expertise is matched only by his dedication to delivering high-quality work. He consistently goes above and beyond to ensure that our projects are not only completed on time but also exceed our expectations. Shaheem's ability to quickly grasp complex concepts and translate them into effective solutions has been invaluable to our team. His proactive approach to problem-solving and his willingness to take on new challenges make him a standout developer. Beyond his technical skills, Shaheem is a great team player who fosters a positive and collaborative work environment. I highly recommend him to any organization looking for a talented and reliable developer who can make a significant impact.",
+  //     author: "John Doe",
+  //     position: "Senior Developer",
+  //     company: "Tech Solutions",
+  //   },
 ];
