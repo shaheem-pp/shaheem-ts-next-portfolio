@@ -1,4 +1,4 @@
-// src/components/sections/CTASection.tsx
+// src/components/homePage/CTASection.tsx
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

@@ -1,4 +1,4 @@
-// src/components/sections/index.ts
+// src/components/homePage/index.ts
 
 export { default as AboutSection } from "./AboutSection";
 export { default as CTASection } from "./CTASection";

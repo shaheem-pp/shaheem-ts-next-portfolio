@@ -1,4 +1,4 @@
-// src/components/sections/TestimonialsSection.tsx
+// src/components/homePage/TestimonialsSection.tsx
 
 "use client";
 

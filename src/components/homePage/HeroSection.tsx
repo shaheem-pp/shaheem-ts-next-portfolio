@@ -1,4 +1,4 @@
-// src/components/sections/HeroSection.tsx
+// src/components/homePage/HeroSection.tsx
 
 import SocialLinks from "@/components/SocialLinks";
 import { Badge } from "@/components/ui/badge";

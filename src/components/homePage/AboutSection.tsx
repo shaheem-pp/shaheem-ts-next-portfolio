@@ -1,4 +1,4 @@
-// src/components/sections/AboutSection.tsx
+// src/components/homePage/AboutSection.tsx
 
 import { topSkills } from "@/app/about/constants";
 import { Badge } from "@/components/ui/badge";
