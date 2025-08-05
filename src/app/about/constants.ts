@@ -11,27 +11,27 @@ export const highlights = [
 export const myvalues = [
     {
         title: "Clean, Modular Code",
-        description: "I write code that's easy to read, test, and scale — designed for teams and long-term impact."
+        description: "I write code that's easy to read, test, and scale - designed for teams and long-term impact."
     },
     {
         title: "User-Centered Thinking",
-        description: "I solve for real needs — building useful interfaces, intuitive flows, and meaningful outcomes."
+        description: "I solve for real needs - building useful interfaces, intuitive flows, and meaningful outcomes."
     },
     {
         title: "Problem-Driven Development",
-        description: "I break complex challenges — from automation to AI pipelines — into focused, effective solutions."
+        description: "I break complex challenges - from automation to AI pipelines - into focused, effective solutions."
     },
     {
         title: "Collaborative by Default",
-        description: "I thrive in teams — working closely with engineers, designers, and stakeholders to ship better products."
+        description: "I thrive in teams - working closely with engineers, designers, and stakeholders to ship better products."
     },
     {
         title: "Tech for Good",
-        description: "I've built tools for NGOs, education, and community orgs — and I stay involved in open, ethical tech."
+        description: "I've built tools for NGOs, education, and community orgs - and I stay involved in open, ethical tech."
     },
     {
         title: "Always Evolving",
-        description: "I actively explore new tools, systems, and practices — not to follow hype, but to raise the bar."
+        description: "I actively explore new tools, systems, and practices - not to follow hype, but to raise the bar."
     }
 ];
 

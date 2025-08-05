@@ -29,7 +29,7 @@ export default function AboutPage() {
                                 <p>
                                     I specialize in Django and backend systems, building secure, scalable applications
                                     that solve real-world problems. My journey in tech began with a love for making
-                                    things work — efficiently and meaningfully.
+                                    things work - efficiently and meaningfully.
                                 </p>
                                 <p>
                                     I'm currently pursuing a Postgraduate Certificate in Full Stack Development in

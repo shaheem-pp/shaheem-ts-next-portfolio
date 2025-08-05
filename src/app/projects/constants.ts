@@ -19,7 +19,7 @@ export const projects = [
     shortContent:
       "A WhatsApp-based AI assistant that helps users plan meals, manage groceries, and reduce food waste intelligently.",
     description: `<h5>Grocify.ai – AI Meal Planning on WhatsApp</h5>
-<p>A FastAPI-powered conversational assistant that enables users to plan meals, track pantry items, and auto-generate grocery lists—entirely through WhatsApp.</p>
+<p>A FastAPI-powered conversational assistant that enables users to plan meals, track pantry items, and auto-generate grocery lists-entirely through WhatsApp.</p>
 
 <p><em>Status:</em> Core modules for registration, meal planning, and Gemini-powered suggestions are live. Inventory syncing and expiry tracking are in active development.</p>
 
@@ -45,7 +45,7 @@ export const projects = [
   <li>Developed session handling, meal flow logic, and WhatsApp Cloud API integration.</li>
 </ul>
 
-<p>Grocify.ai solves a common problem—wasting time and ingredients—by helping users plan smarter and live more intentionally.</p>`,
+<p>Grocify.ai solves a common problem-wasting time and ingredients-by helping users plan smarter and live more intentionally.</p>`,
     links: {
       // "bi bi-github": "https://github.com/shaheem-pp/grocify-ai" // Optional
     },
@@ -363,7 +363,7 @@ export const projects = [
     shortContent:
       "A minimalist web app that transforms user input into beautifully animated typographic art using Flask and WebGL.",
     description: `<h5>WordWeaver – Typographic Visualizer</h5>
-<p><strong>WordWeaver</strong> is a Flask-based generative design application that brings typography to life. It turns user-provided text into dynamic, animated visuals using the power of WebGL, p5.js, and shader magic—right from the browser.</p>
+<p><strong>WordWeaver</strong> is a Flask-based generative design application that brings typography to life. It turns user-provided text into dynamic, animated visuals using the power of WebGL, p5.js, and shader magic-right from the browser.</p>
 
 <h5>Key Features:</h5>
 <ul>
@@ -380,7 +380,7 @@ export const projects = [
   <li>Designed a dark, studio-themed interface optimized for focus and immersion.</li>
 </ul>
 
-<p><strong>WordWeaver</strong> is not just a visual toy—it’s a statement piece combining creativity, code, and real-time rendering, aimed at exploring the intersection of language and generative art.</p>`,
+<p><strong>WordWeaver</strong> is not just a visual toy-it’s a statement piece combining creativity, code, and real-time rendering, aimed at exploring the intersection of language and generative art.</p>`,
     links: {
       "bi bi-github": "https://github.com/shaheem-pp/WordWeaver-flask",
     },

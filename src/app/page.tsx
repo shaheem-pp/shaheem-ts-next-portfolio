@@ -40,7 +40,7 @@ export default function Home() {
                                         className="bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text"> real products</span>
                                 </h1>
                                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                                    I'm Shaheem — a Product Engineer who blends backend architecture, AI integration,
+                                    I'm Shaheem - a Product Engineer who blends backend architecture, AI integration,
                                     and product thinking to build software that scales and solves real problems.
                                 </p>
                             </div>
@@ -108,7 +108,7 @@ export default function Home() {
                         </h2>
                         <p className="max-w-[85%] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                             I’m a Product Engineer with 2 years of experience turning technical complexity into
-                            real-world impact — through scalable systems, human-centric tools, and fast-moving
+                            real-world impact - through scalable systems, human-centric tools, and fast-moving
                             prototypes.
                         </p>
                         <Separator className="my-4"/>
@@ -116,7 +116,7 @@ export default function Home() {
                             <div>
                                 <h3 className="text-xl font-bold mb-3">My Expertise</h3>
                                 <p className="text-muted-foreground mb-4">
-                                    I specialize in backend-first product development — designing APIs, integrating AI,
+                                    I specialize in backend-first product development - designing APIs, integrating AI,
                                     and building systems that scale.
                                     I'm currently based in Toronto, pursuing a Post Graduate program in Full Stack
                                     Software Development while actively working on AI-integrated tools and internal
@@ -143,7 +143,7 @@ export default function Home() {
                                 <p className="text-muted-foreground">
                                     I believe product engineers should build with purpose. Whether it's launching MVPs
                                     or refining production systems, I focus on fast feedback loops, clean abstractions,
-                                    and delivering value — not just code.
+                                    and delivering value - not just code.
                                 </p>
                             </div>
                         </div>
@@ -271,7 +271,7 @@ export default function Home() {
                                 Let's Build Something Together
                             </h2>
                             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                                Let’s collaborate on something meaningful — whether it’s a new product, a challenging
+                                Let’s collaborate on something meaningful - whether it’s a new product, a challenging
                                 backend system, or a passion project.
                             </p>
                         </div>

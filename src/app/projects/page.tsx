@@ -70,7 +70,7 @@ export default function ProjectsPage() {
                             Projects
                         </h2>
                         <p className="max-w-[85%] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Real-world platforms I've built — spanning professional systems, hackathons, and academic projects.
+                            Real-world platforms I've built - spanning professional systems, hackathons, and academic projects.
                         </p>
                     </div>
 

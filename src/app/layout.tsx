@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Shaheem PP | Full Stack Developer",
         description:
-            "Hi, I'm Shaheem — a backend-focused full stack developer passionate about efficient systems, intuitive apps, and community impact. View my work, resume, and get in touch.",
+            "Hi, I'm Shaheem - a backend-focused full stack developer passionate about efficient systems, intuitive apps, and community impact. View my work, resume, and get in touch.",
         url: "https://shaheem.dev",
         siteName: "shaheem.dev",
         images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Shaheem PP | Full Stack Developer",
         description:
-            "Portfolio of Shaheem PP — full stack developer specializing in Django, React, TypeScript, and scalable backend systems.",
+            "Portfolio of Shaheem PP - full stack developer specializing in Django, React, TypeScript, and scalable backend systems.",
         creator: "@shaheem_pp", // Update if you create a Twitter handle
         images: ["/image/Banner with Blur Highlights.png"]
     }
