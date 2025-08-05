@@ -59,7 +59,7 @@ export default function AboutPage() {
                                 <div
                                     className="aspect-square overflow-hidden rounded-xl bg-gradient-to-b from-purple-600/20 to-pink-600/20 p-2">
                                     <Image
-                                        src="https://ext.same-assets.com/3659750609/2569368412.png"
+                                        src="image/me2.png"
                                         alt="Shaheem PP"
                                         width={500}
                                         height={500}
