@@ -125,23 +125,23 @@ export default function TestimonialModal({
                 <button
                   onClick={handlePrevious}
                   disabled={isTransitioning}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group disabled:opacity-50 disabled:cursor-not-allowed border border-white/20"
                   aria-label="Previous testimonial"
                 >
-                  <ChevronLeft className="w-5 h-5 text-white transition-transform group-hover:-translate-x-0.5" />
+                  <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white transition-transform group-hover:-translate-x-0.5" />
                 </button>
 
                 <button
                   onClick={handleNext}
                   disabled={isTransitioning}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group disabled:opacity-50 disabled:cursor-not-allowed border border-white/20"
                   aria-label="Next testimonial"
                 >
-                  <ChevronRight className="w-5 h-5 text-white transition-transform group-hover:translate-x-0.5" />
+                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white transition-transform group-hover:translate-x-0.5" />
                 </button>
 
                 {/* Header */}
-                <div className="relative p-6 text-white">
+                <div className="relative px-10 md:px-8 pt-6 text-white">
                   <button
                     onClick={closeModal}
                     className="absolute top-4 right-4 w-8 h-8 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
@@ -166,7 +166,7 @@ export default function TestimonialModal({
 
                 {/* Content */}
                 <div
-                  className={`px-6 pb-6 text-white transition-all duration-300 ${
+                  className={`px-10 md:px-8 pb-6 text-white transition-all duration-300 ${
                     isTransitioning
                       ? "opacity-50 scale-95"
                       : "opacity-100 scale-100"
