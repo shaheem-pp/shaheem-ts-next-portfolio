@@ -442,4 +442,61 @@ export const projects = [
     category: "Academic Project",
     featured: false,
   },
+  {
+    title: "World Clocks",
+    image: "https://github.com/shaheem-pp/times-es6/raw/main/cover.png",
+    shortContent:
+      "A responsive real-time world clock application displaying multiple timezones simultaneously with modular ES6 architecture.",
+    description: `<h5>World Clocks – Real-time Timezone Display</h5>
+<p>A clean, responsive web application built with vanilla JavaScript that displays real-time clocks for multiple timezones around the world. Features a modular ES6 class-based architecture with performance optimizations and accessibility support.</p>
+
+<p><em>Status:</em> Fully functional with dynamic city management, automatic UTC offset sorting, and responsive grid layout. Performance optimizations include pausing updates when tab is not visible.</p>
+
+<h5>Key Features:</h5>
+<ul>
+  <li><strong>Real-time Updates:</strong> All clocks update every second with accurate timezone information using <code>Intl.DateTimeFormat</code>.</li>
+  <li><strong>Multiple Timezones:</strong> Display time for multiple cities simultaneously with automatic UTC offset sorting.</li>
+  <li><strong>Responsive Design:</strong> CSS Grid layout that adapts from 1 column on mobile to 4+ columns on large screens.</li>
+  <li><strong>Modular Architecture:</strong> Clean ES6 class-based architecture with separate modules for different concerns.</li>
+  <li><strong>Dynamic Management:</strong> Add or remove cities at runtime through JavaScript API or configuration file.</li>
+  <li><strong>Performance Optimized:</strong> Updates pause when browser tab is not visible to save resources.</li>
+  <li><strong>Accessibility:</strong> Keyboard navigation, ARIA labels, and screen reader support.</li>
+</ul>
+
+<h5>Architecture:</h5>
+<ul>
+  <li><strong>WorldClocksApp:</strong> Main application controller handling initialization and coordination.</li>
+  <li><strong>WorldClock:</strong> Individual clock component with rendering logic and time updates.</li>
+  <li><strong>TimeZoneUtils:</strong> Utility functions for timezone calculations and formatting.</li>
+  <li><strong>GridManager:</strong> Responsive grid layout management and card positioning.</li>
+  <li><strong>EventManager:</strong> User interaction and event handling across components.</li>
+</ul>
+
+<h5>Technical Highlights:</h5>
+<ul>
+  <li>Built with vanilla JavaScript ES6+ classes and modules for clean separation of concerns.</li>
+  <li>Utilizes modern web APIs like <code>Intl.DateTimeFormat</code> for accurate timezone handling.</li>
+  <li>CSS Grid and Flexbox for responsive layout without external grid frameworks.</li>
+  <li>Component-based CSS architecture with modular stylesheets.</li>
+  <li>Performance optimizations including efficient DOM updates and visibility-based pausing.</li>
+</ul>
+
+<p>World Clocks demonstrates modern vanilla JavaScript development practices with a focus on performance, accessibility, and maintainable code architecture.</p>`,
+    links: {
+      "bi bi-github": "https://github.com/shaheem-pp/times-es6",
+      "bi bi-globe2": "https://shaheem-pp.github.io/times-es6/",
+    },
+    stack: [
+      "JavaScript ES6+",
+      "HTML5",
+      "CSS3",
+      "CSS Grid",
+      "Tailwind CSS",
+      "Font Awesome",
+      "Intl.DateTimeFormat API",
+    ],
+    status: "Completed",
+    category: "Personal Project",
+    featured: false,
+  },
 ];
