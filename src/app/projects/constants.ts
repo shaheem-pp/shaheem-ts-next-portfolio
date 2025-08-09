@@ -443,6 +443,68 @@ export const projects = [
     featured: false,
   },
   {
+    title: "TechGadgets - E-Commerce Platform",
+    image: "Project/images/techgadgets/cover.png",
+    shortContent:
+      "A full-stack e-commerce app with product catalog, cart, checkout, orders, and an admin dashboard built with React, Node/Express, and MongoDB.",
+    description: `<h5>TechGadgets – Full‑Stack E‑Commerce</h5>
+<p>TechGadgets is a complete shopping experience built as part of the CSD3103 Full‑Stack JavaScript course. It includes a modern React UI (Material‑UI), secure authentication, a robust Express API, and MongoDB data models for products, categories, users, and orders.</p>
+
+<h5>Key Features:</h5>
+<ul>
+  <li><strong>Product Catalog:</strong> Search, category filtering, sorting, and paginated grid.</li>
+  <li><strong>Product Detail:</strong> Rich product page with stock indicators and Add to Cart.</li>
+  <li><strong>Cart & Checkout:</strong> Quantity updates, multi‑step checkout (Shipping → Payment → Review), and order placement with summaries.</li>
+  <li><strong>Orders:</strong> User order history with detailed order view, status and payment indicators.</li>
+  <li><strong>Admin:</strong> Dashboard and CRUD for products, categories, users, and orders.</li>
+  <li><strong>Newsletter:</strong> Subscription flow with backend storage.</li>
+  <li><strong>UX:</strong> Dark mode, breadcrumbs, skeleton loaders, toasts, and responsive layouts.</li>
+</ul>
+
+<h5>Architecture:</h5>
+<ul>
+  <li><strong>Frontend:</strong> React + Material‑UI, React Router, protected routes, context‑based dark mode, API services layer.</li>
+  <li><strong>Backend:</strong> Node.js with Express, REST routes for products, categories, cart, orders, auth, admin, and newsletter.</li>
+  <li><strong>Database:</strong> MongoDB with Mongoose models (Product, Category, User, Order, Newsletter).</li>
+  <li><strong>Auth:</strong> Passport.js sessions with secure cookies (JWT-ready) and role‑based admin gating.</li>
+</ul>
+
+<h5>My Contributions:</h5>
+<ul>
+  <li>Implemented REST API endpoints and Mongoose models for core entities.</li>
+  <li>Built product catalog, product detail, cart, checkout, orders, and admin pages with Material‑UI.</li>
+  <li>Added protected routes, role checks, and polished UX (loaders, toasts, breadcrumbs).</li>
+  <li>Wired newsletter flow end‑to‑end and improved developer ergonomics with scripts and fixtures.</li>
+</ul>
+
+<h5>Technical Highlights:</h5>
+<ul>
+  <li>Server‑side pagination, search, and filtering for scalable product browsing.</li>
+  <li>Multi‑step checkout with field validation and order creation.</li>
+  <li>Consistent design system using MUI theme + dark mode context.</li>
+  <li>Session storage in MongoDB and CORS‑safe API integration for local dev.</li>
+</ul>
+
+<p>This project demonstrates an end‑to‑end e‑commerce build with production‑style patterns across the stack.</p>`,
+    links: {
+      // "bi bi-github": "https://github.com/your-username/TechGadgets" // Optional
+    },
+    stack: [
+      "React",
+      "Material-UI",
+      "React Router",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Passport.js",
+      "JWT",
+    ],
+    status: "Completed",
+    category: "Academic Project",
+    featured: false,
+  },
+  {
     title: "World Clocks",
     image: "https://github.com/shaheem-pp/times-es6/raw/main/cover.png",
     shortContent:
