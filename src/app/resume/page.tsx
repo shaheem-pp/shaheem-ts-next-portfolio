@@ -140,33 +140,36 @@ export default function ResumePage() {
       {/* Skills Section */}
       <section id="skills" className="py-12 md:py-20">
         <div className="container px-4 md:px-6">
-          <div className="max-w-5xl mx-auto space-y-6 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              Skills
-            </h2>
-            <p className="text-muted-foreground md:text-xl">
-              Tools, technologies, and languages I work with:
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                Technical Skills
+              </h2>
+              <p className="text-muted-foreground md:text-xl max-w-2xl mx-auto">
+                Technologies and tools I work with professionally
+              </p>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {skills.map((skill, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{skill.category}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {skill.items.map((item, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className="hover:scale-105 transition-transform duration-200"
-                        >
-                          {item}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <div
+                  key={index}
+                  className="space-y-4 p-6 rounded-lg border bg-card hover:bg-card/80 transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40"
+                >
+                  <h3 className="font-semibold text-lg text-foreground border-b border-border/30 pb-2">
+                    {skill.category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skill.items.map((item, i) => (
+                      <Badge
+                        key={i}
+                        variant="outline"
+                        className="text-sm font-normal hover:bg-muted transition-colors duration-200"
+                      >
+                        {item}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
