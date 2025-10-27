@@ -12,6 +12,12 @@
 
 # testing
 /coverage
+*.test.js
+*.test.ts
+*.test.tsx
+*.spec.js
+*.spec.ts
+*.spec.tsx
 
 # next.js
 /.next/
@@ -19,24 +25,123 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+*.log
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# environment variables - CRITICAL: Never commit these!
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Allow example env files to be committed
+!.env.example
+!.env.sample
+!.env.template
 
 # vercel
 .vercel
+.vercel.json
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.idea
+
+# IDE - JetBrains (IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# IDE - VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IDE - Vim
+*.swp
+*.swo
+*~
+
+# IDE - Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+.eslintcache
+
+# Lock files (keep package-lock.json, but ignore others if needed)
+# npm
+# package-lock.json  # Uncomment if you use Yarn exclusively
+# yarn
+# yarn.lock  # Uncomment if you use npm exclusively
+# pnpm
+# pnpm-lock.yaml  # Uncomment if you don't use pnpm
+
+# Local development
+.turbo
+.contentlayer
+
+# Sentry
+.sentryclirc
+.sentry-*
+
+# Storybook
+storybook-static
+
+# Documentation build
+/docs/.vitepress/dist
+/docs/.vitepress/cache
+
+# Generated files
+*.generated.*
+/generated/
