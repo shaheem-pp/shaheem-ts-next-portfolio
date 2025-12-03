@@ -8,6 +8,38 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+// Helper function to get ordinal suffix for day
+function getOrdinalSuffix(day: number): string {
+	if (day > 3 && day < 21) return "th";
+	switch (day % 10) {
+		case 1:
+			return "st";
+		case 2:
+			return "nd";
+		case 3:
+			return "rd";
+		default:
+			return "th";
+	}
+}
+
+// Helper function to format date as "7th July 2025"
+function formatDate(date: Date): string {
+	const day = date.getDate();
+	const month = date.toLocaleDateString("en-US", { month: "long" });
+	const year = date.getFullYear();
+	return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+}
+
+// Helper function to format time as "07:01 PM"
+function formatTime(date: Date): string {
+	return date.toLocaleTimeString("en-US", {
+		hour: "2-digit",
+		minute: "2-digit",
+		hour12: true,
+	});
+}
+
 export default function ContactPage() {
 	const contactInfo = [
 		{
@@ -50,12 +82,18 @@ export default function ContactPage() {
 
 		// Get form data
 		const formData = new FormData(form.current);
+		const now = new Date();
+
 		const data = {
 			name: formData.get("name") as string,
 			email: formData.get("email") as string,
 			phone: formData.get("phone") as string,
 			subject: formData.get("subject") as string,
 			message: formData.get("message") as string,
+			clientDate: formatDate(now),
+			clientTime: formatTime(now),
+			clientYear: now.getFullYear().toString(),
+			clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 		};
 
 		try {

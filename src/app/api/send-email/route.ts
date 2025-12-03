@@ -8,6 +8,10 @@ interface EmailRequestBody {
 	phone?: string;
 	subject: string;
 	message: string;
+	clientDate?: string;
+	clientTime?: string;
+	clientYear?: string;
+	clientTimezone?: string;
 }
 
 // Define error type for EmailJS errors
@@ -16,12 +20,54 @@ interface EmailJSError extends Error {
 	text?: string;
 }
 
+// Helper function to get ordinal suffix for day
+function getOrdinalSuffix(day: number): string {
+	if (day > 3 && day < 21) return "th";
+	switch (day % 10) {
+		case 1:
+			return "st";
+		case 2:
+			return "nd";
+		case 3:
+			return "rd";
+		default:
+			return "th";
+	}
+}
+
+// Helper function to format date as "7th July 2025"
+function formatDate(date: Date): string {
+	const day = date.getDate();
+	const month = date.toLocaleDateString("en-US", { month: "long" });
+	const year = date.getFullYear();
+	return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+}
+
+// Helper function to format time as "07:01 PM"
+function formatTime(date: Date): string {
+	return date.toLocaleTimeString("en-US", {
+		hour: "2-digit",
+		minute: "2-digit",
+		hour12: true,
+	});
+}
+
 export async function POST(request: NextRequest) {
 	try {
 		// Parse the request body
 		const body: EmailRequestBody = await request.json();
 
-		const { name, email, phone, subject, message } = body;
+		const {
+			name,
+			email,
+			phone,
+			subject,
+			message,
+			clientDate,
+			clientTime,
+			clientYear,
+			clientTimezone,
+		} = body;
 
 		// Validate required fields
 		if (!name || !email || !subject || !message) {
@@ -50,6 +96,9 @@ export async function POST(request: NextRequest) {
 			);
 		}
 
+		// Get current date/time (use client-provided if available)
+		const now = new Date();
+
 		// Prepare template parameters
 		const templateParams = {
 			from_name: name,
@@ -58,6 +107,10 @@ export async function POST(request: NextRequest) {
 			subject: subject,
 			message: message,
 			to_name: "Shaheem",
+			date: clientDate || formatDate(now),
+			time: clientTime || formatTime(now),
+			year: clientYear || now.getFullYear().toString(),
+			timezone: clientTimezone || "UTC",
 		};
 
 		// Send email using EmailJS

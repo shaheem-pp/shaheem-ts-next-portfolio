@@ -27,6 +27,10 @@ Your EmailJS credentials are now securely stored on the server-side and will nev
      - `{{subject}}` - Email subject
      - `{{message}}` - Email message
      - `{{to_name}}` - Your name (static)
+     - `{{date}}` - Current date of sender
+     - `{{time}}` - Current time of sender
+     - `{{year}}` - year of the datetime of sender
+     - `{{timezone}}` - timezone of the sender
    - Note down the **Template ID**
 
 4. **Regenerate API Keys:**
