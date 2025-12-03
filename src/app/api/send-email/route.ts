@@ -10,10 +10,17 @@ interface EmailRequestBody {
 	message: string;
 }
 
+// Define error type for EmailJS errors
+interface EmailJSError extends Error {
+	status?: number;
+	text?: string;
+}
+
 export async function POST(request: NextRequest) {
 	try {
 		// Parse the request body
 		const body: EmailRequestBody = await request.json();
+
 		const { name, email, phone, subject, message } = body;
 
 		// Validate required fields
@@ -37,32 +44,32 @@ export async function POST(request: NextRequest) {
 			!process.env.EMAILJS_PUBLIC_KEY ||
 			!process.env.EMAILJS_PRIVATE_KEY
 		) {
-			console.error("EmailJS environment variables are not configured");
 			return NextResponse.json(
 				{ error: "Email service is not configured. Please contact the administrator." },
 				{ status: 500 }
 			);
 		}
 
+		// Prepare template parameters
+		const templateParams = {
+			from_name: name,
+			from_email: email,
+			phone: phone || "Not provided",
+			subject: subject,
+			message: message,
+			to_name: "Shaheem",
+		};
+
 		// Send email using EmailJS
 		const response = await emailjs.send(
 			process.env.EMAILJS_SERVICE_ID,
 			process.env.EMAILJS_TEMPLATE_ID,
-			{
-				from_name: name,
-				from_email: email,
-				phone: phone || "Not provided",
-				subject: subject,
-				message: message,
-				to_name: "Shaheem", // You can customize this
-			},
+			templateParams,
 			{
 				publicKey: process.env.EMAILJS_PUBLIC_KEY,
 				privateKey: process.env.EMAILJS_PRIVATE_KEY,
 			}
 		);
-
-		console.log("Email sent successfully:", response);
 
 		return NextResponse.json(
 			{
@@ -71,22 +78,23 @@ export async function POST(request: NextRequest) {
 			},
 			{ status: 200 }
 		);
-	} catch (error) {
-		console.error("Error sending email:", error);
+	} catch (error: unknown) {
+		// Type guard for EmailJS errors
+		const emailjsError = error as EmailJSError;
 
-		// Handle specific EmailJS errors
-		if (error instanceof Error) {
-			return NextResponse.json(
-				{
-					error: "Failed to send email. Please try again later.",
-					details: process.env.NODE_ENV === "development" ? error.message : undefined,
-				},
-				{ status: 500 }
-			);
-		}
-
+		// Return detailed error in development
 		return NextResponse.json(
-			{ error: "An unexpected error occurred while sending the email" },
+			{
+				error: "An unexpected error occurred while sending the email",
+				details:
+					process.env.NODE_ENV === "development"
+						? {
+								message: error instanceof Error ? error.message : "Unknown error",
+								status: emailjsError?.status,
+								text: emailjsError?.text,
+						  }
+						: undefined,
+			},
 			{ status: 500 }
 		);
 	}

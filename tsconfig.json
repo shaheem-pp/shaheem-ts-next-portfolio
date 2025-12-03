@@ -30,6 +30,6 @@
 		"build/types/**/*.ts",
 		"next-env.d.ts",
 		"out/types/**/*.ts"
-	],
+, "test-emailjs.js"	],
 	"exclude": ["node_modules"]
 }
