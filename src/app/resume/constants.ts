@@ -7,26 +7,50 @@ export type Achievement = {
 	image: string;
 };
 
-export type Experience = {
+export type Position = {
 	title: string;
-	company: string;
 	duration: string;
-	location: string;
 	role?: string;
 	responsibilities?: string[];
 };
 
+export type Experience = {
+	company: string;
+	location: string;
+	// Single position (legacy support)
+	title?: string;
+	duration?: string;
+	role?: string;
+	responsibilities?: string[];
+	// Multiple positions (timeline)
+	positions?: Position[];
+};
+
 export const experiences: Experience[] = [
 	{
-		title: "Junior Developer",
 		company: "Paayatech Inc.",
-		duration: "Sept 2025 - Present",
 		location: "Mississauga, ON, Canada",
-		role: "Co-op",
-		responsibilities: [
-			"Build features in React and Blazor and connect them to the .NET backend.",
-			"Add or fix backend logic and database changes.",
-			"Find and fix bugs, writing test codes, and learn from team code reviews.",
+		positions: [
+			{
+				title: "Junior Developer",
+				duration: "January 2025 - Present",
+				role: "Contractor",
+				responsibilities: [
+					"Build features in React and Blazor and connect them to the .NET backend.",
+					"Add or fix backend logic and database changes.",
+					"Find and fix bugs, writing test codes, and learn from team code reviews.",
+				],
+			},
+			{
+				title: "Junior Developer",
+				duration: "Sept 2025 - Dec 2025",
+				role: "Co-op",
+				responsibilities: [
+					"Built features in React and Blazor and connected them to the .NET backend.",
+					"Added or fixed backend logic and database changes.",
+					"Found and fixed bugs, wrote test codes, and learned from team code reviews.",
+				],
+			},
 		],
 	},
 	{
@@ -87,7 +111,7 @@ export const education = [
 		degree: "Post Graduation",
 		field: "Full Stack Software Development",
 		institution: "Lambton College",
-		duration: "May 2024 – Present",
+		duration: "May 2024 – December 2025",
 		location: "Toronto, ON",
 		highlights: [
 			"GPA: 3.35",
