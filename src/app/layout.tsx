@@ -1,73 +1,98 @@
+// src/app/layout.tsx
+
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+	subsets: ["latin"],
+	variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
-  description: DATA.description,
-  openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  verification: {
-    google: "",
-    yandex: "",
-  },
+	title: "Shaheem PP | Backend-Focused Full Stack Developer",
+	description:
+		"Explore the portfolio of Shaheem PP, a backend-focused full stack developer skilled in Django, React, TypeScript, and cloud technologies. Discover scalable solutions and impactful projects.",
+	keywords: [
+		"Shaheem PP",
+		"Full Stack Developer",
+		"Backend Developer",
+		"Django Developer",
+		"React Developer",
+		"TypeScript Developer",
+		"Web Developer",
+		"Next.js Portfolio",
+		"PostgreSQL",
+		"PostGIS",
+		"Cloud Deployment",
+		"Software Engineer",
+		"Toronto Developer",
+	],
+	authors: [{ name: "Shaheem PP", url: "https://shaheem.dev" }],
+	creator: "Shaheem PP",
+	generator: "Next.js",
+	metadataBase: new URL("https://shaheem.dev"),
+	icons: {
+		icon: "/image/sLogo.svg",
+		shortcut: "/image/sLogo.svg",
+		apple: "/image/sLogo.svg",
+	},
+	openGraph: {
+		title: "Shaheem PP | Product Engineer",
+		description:
+			"Hi, I'm Shaheem - a backend-focused full stack developer passionate about efficient systems, intuitive apps, and community impact. View my work, resume, and get in touch.",
+		url: "https://shaheem.dev",
+		siteName: "shaheem.dev",
+		images: [
+			{
+				url: "/image/Banner with Blur Highlights.png",
+				width: 1200,
+				height: 630,
+				alt: "Shaheem PP Portfolio Banner",
+			},
+		],
+		locale: "en_CA",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Shaheem PP | Product Engineer",
+		description:
+			"Portfolio of Shaheem PP - Product Engineer specializing in Django, React, TypeScript, and scalable backend systems.",
+		creator: "@shaheem_pp", // Update if you create a Twitter handle
+		images: ["/image/Banner with Blur Highlights.png"],
+	},
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="light"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<div className="flex min-h-screen flex-col">
+						<Navbar />
+						<main className="flex-1">{children}</main>
+						<Footer />
+					</div>
+				</ThemeProvider>
+				<Analytics />
+				<SpeedInsights />
+			</body>
+		</html>
+	);
 }
